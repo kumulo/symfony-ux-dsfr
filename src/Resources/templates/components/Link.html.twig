@@ -1,0 +1,9 @@
+<a
+    {% if this.id is not null %}id="{{ this.id }}" {% endif %}
+    {% if this.rel %} rel="{{ this.rel }}"{% endif %}
+    {% if this.title %} title="{{ this.title }}"{% endif %}
+    {% if this.target != '_self' %} target="{{ this.target }}"{% endif %}
+    href="{{ this.link }}"
+    class="{{ this.class }}"
+    {% if this.jsNavigationLink %} data-fr-js-navigation-link-actionee="true"{% endif %}
+>{% block content %}Libellé du lien{% endblock %}</a>

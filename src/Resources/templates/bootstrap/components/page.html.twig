@@ -1,0 +1,16 @@
+{% extends "@UxDsfr/base.html.twig" %}
+
+{% block page_content %}
+    <twig:UxDsfr:Header>
+        {% include '@UxDsfr/bootstrap/layout/header.html.twig' %}
+    </twig:UxDsfr:Header>
+    {% if block('body_content') is defined %}
+    {% set body = block('body_content') %}
+    <twig:UxDsfr:Layout:Body class="fr-pb-md-14v">
+        {% block body_content %}
+            {{ body|raw }}
+        {% endblock %}
+    </twig:UxDsfr:Layout:Body>
+    {% endif %}
+    <twig:UxDsfr:Footer />
+{% endblock %}

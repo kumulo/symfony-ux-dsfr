@@ -1,0 +1,19 @@
+{% use "form_div_layout.html.twig" %}
+
+{% block form_label -%}
+    {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' fr-label')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block choice_widget_collapsed -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' fr-select')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    {% if type == 'text' %}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' fr-input')|trim}) %}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock %}

@@ -1,0 +1,13 @@
+utils:
+  close: Fermer
+  search: Rechercher
+  menu: Menu
+theme_switcher:
+  title: Paramètres d’affichage
+  button: Paramètres d'affichage
+  bright: Thème clair
+  dark: Thème sombre
+  system: >
+    Système <span class="fr-hint-text">Utilise les paramètres système</span>
+  choose: >
+    Choisissez un thème pour personnaliser l'apparence du site.

@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SymfonyUxDsfr\Twig\Components\:
+    resource: '../../Twig/Components'
+
+  SymfonyUxDsfr\Controller\:
+    resource: '../../Controller'

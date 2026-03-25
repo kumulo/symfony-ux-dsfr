@@ -1,0 +1,11 @@
+<div class="fr-header__logo">
+    {% set logo_name %}{% block content %}République<br>Française{% endblock %}{% endset %}
+    <twig:UxDsfr:GouvLogo>
+        {{ logo_name }}
+    </twig:UxDsfr:GouvLogo>
+</div>
+{% if service_logo %}
+<div class="fr-header__operator">
+    <img class="fr-responsive-img" style="width: 3.5rem" src="{{ service_logo }}" width="auto" height="80" />
+</div>
+{% endif %}

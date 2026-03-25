@@ -1,0 +1,26 @@
+{% extends "@UxDsfr/bootstrap/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">GouvLogo</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+                <twig:UxDsfr:GouvLogo />
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Code snippel</h3>
+        <div class="code-snippet">
+            {% set code = "{% component 'UxDsfr:GouvLogo' %}
+    {% block content %}
+        Intitulé&lt;br&gt;officiel
+    {% endblock %}
+{% endcomponent %}" %}
+            <pre><code class="language-twig">{{ code|raw }}</code></pre>
+            {% set code = "&lt;twig:UxDsfr:GouvLogo&gt;
+    Intitulé&lt;br&gt;officiel
+&lt;/twig:UxDsfr:GouvLogo&gt;" %}
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}

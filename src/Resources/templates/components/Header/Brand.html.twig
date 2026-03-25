@@ -1,0 +1,31 @@
+<div {{ attributes.defaults({ 'class':'fr-header__brand fr-enlarge-link' }) }}>
+    {% set logo_title %}{% block logo_title %}{% endblock %}{% endset %}
+    <div class="fr-header__brand-top">
+        {% if logo_title %}
+            <twig:UxDsfr:Header:Logo :service_logo="service_logo">{{ logo_title }}</twig:UxDsfr:Header:Logo>
+        {% else %}
+            <twig:UxDsfr:Header:Logo :service_logo="service_logo"></twig:UxDsfr:Header:Logo>
+        {% endif %}
+
+        {% if show_search_button or show_menu_button %}
+        <div class="fr-header__navbar">
+            {% if show_search_button %}
+            <button data-fr-opened="false" aria-controls="{{ search_modal_id }}" title="{{ 'utils.search'|trans({}, 'dsfr') }}" type="button" id="search-modal-button" class="fr-btn--search fr-btn">
+                {{ 'utils.search'|trans({}, 'dsfr') }}
+            </button>
+            {% endif %}
+            {% if show_menu_button %}
+            <button data-fr-opened="false" aria-controls="{{ menu_id }}" title="{{ 'utils.menu'|trans({}, 'dsfr') }}" type="button" id="header-menu-btn" class="fr-btn--menu fr-btn">
+                {{ 'utils.menu'|trans({}, 'dsfr') }}
+            </button>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    {% set service_title %}{% block brand_service_title %}brand_service_title{% endblock %}{% endset %}
+    {% set service_tag %}{% block brand_service_tag %}brand_service_tag{% endblock %}{% endset %}
+    <twig:UxDsfr:Header:Service link="{{ service_link }}">
+        {% block service_title %}{{ service_title }}{% endblock %}
+        {% block service_tag %}{{ service_tag }}{% endblock %}
+    </twig:UxDsfr:Header:Service>
+</div>

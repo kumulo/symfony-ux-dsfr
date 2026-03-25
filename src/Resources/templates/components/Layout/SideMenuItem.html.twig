@@ -1,0 +1,11 @@
+<li {{ attributes.defaults({
+    'class': 'fr-sidemenu__item',
+}) }}>
+    {% if block('link') is defined %}
+        {{ block('link') }}
+    {% elseif block('submenu') is defined %}
+        {{ block('submenu') }}
+    {% else %}
+        {%- block content -%}{%- endblock -%}
+    {% endif %}
+</li>

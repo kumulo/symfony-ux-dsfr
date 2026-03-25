@@ -1,0 +1,21 @@
+{% set link_content %}{% block content %}{% endblock %}{% endset %}
+{% set sub_menu %}{% block sub_menu %}{% endblock %}{% endset %}
+<li {{ attributes.defaults({
+    class:"fr-nav__item",
+    'data-fr-js-navigation-item': "true" })
+}}>
+   {% if href %}
+        <a type="link"{% if app.request.pathInfo === href %} aria-current="page"{% endif %} href="{{ href }}" class="fr-nav__link" data-fr-js-navigation-link-actionee="true">
+            {{ link_content }}
+        </a>
+    {% else %}
+        <span class="fr-nav__link" data-fr-js-navigation-link-actionee="true">
+            {{ link_content }}
+        </span>
+    {% endif %}
+    {% if sub_menu %}
+        <ul>
+        {{ sub_menu }}
+        </ul>
+    {% endif %}
+</li>

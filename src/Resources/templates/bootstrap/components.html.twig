@@ -1,0 +1,22 @@
+{% extends "@UxDsfr/bootstrap/components/page.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('dsfr-hljs', null, 'dsfr') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('dsfr-hljs', null, 'dsfr') }}
+{% endblock %}
+{% if block('text_content') is defined %}
+    {% set col2 = block('text_content') %}
+{% endif %}
+{% block body_content %}
+    {% component 'UxDsfr:Layout:TwoColumns' %}
+        {% block column1 %}
+            {% include('@UxDsfr/bootstrap/components/nav.html.twig') %}
+        {% endblock %}
+        {% block column2 %}
+            {{ col2|raw }}
+        {% endblock %}
+    {% endcomponent %}
+{% endblock %}

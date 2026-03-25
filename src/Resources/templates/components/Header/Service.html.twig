@@ -1,0 +1,19 @@
+<div {{ attributes.defaults({ 'class':'fr-header__service' }) }}>
+    {% set titleline %}{% block service_title %}Système de Design de l’État Service{% endblock %}{% endset %}
+    {% set tagline %}{% block service_tag %}Système de Design de l’État{% endblock %}{% endset %}
+    {% if link is null or app.request.pathInfo === link %}
+        <div title="{{ titleline }}">
+            <p class="fr-header__service-title">
+                {{ titleline }}
+            </p>
+            {% if tagline %}<p class="fr-header__service-tagline">{{ tagline }}</p>{% endif %}
+        </div>
+    {% else %}
+    <a href="{{ link }}" title="{{ titleline }}">
+        <p class="fr-header__service-title">
+            {{ titleline }}
+        </p>
+        {% if tagline %}<p class="fr-header__service-tagline">{{ tagline }}</p>{% endif %}
+    </a>
+    {% endif %}
+</div>

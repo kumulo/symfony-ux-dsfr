@@ -1,0 +1,28 @@
+{% if block('column1') is defined %}
+    {% set col1 %}
+        {% block column1 %}a{% endblock %}
+    {% endset %}
+{% endif %}
+{% if block('column2') is defined %}
+    {% set col2 %}
+        {% block column2 %}b{% endblock %}
+    {% endset %}
+{% endif %}
+{% component 'UxDsfr:Layout:Grid' with({ class: attributes.render('class') }) %}
+    {% block grid_content %}
+        {% if col1 is defined %}
+            {% component 'UxDsfr:Layout:Column' with({ class:classCol1 }) %}
+                {% block col_content %}
+                    {{ col1 }}
+                {% endblock %}
+            {% endcomponent %}
+        {% endif %}
+        {% if col2 is defined %}
+            {% component 'UxDsfr:Layout:Column' with({ class:classCol2 }) %}
+                {% block col_content %}
+                    {{ col2 }}
+                {% endblock %}
+            {% endcomponent %}
+        {% endif %}
+    {% endblock %}
+{% endcomponent %}

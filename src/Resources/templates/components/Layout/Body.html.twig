@@ -1,0 +1,10 @@
+<main {{ attributes.defaults({
+    id: 'content',
+    role: 'main',
+}) }}>
+    <div class="fr-container">
+        {% block body_content %}
+            Default body content
+        {% endblock %}
+    </div>
+</main>

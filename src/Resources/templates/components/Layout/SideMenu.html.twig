@@ -1,0 +1,56 @@
+<nav {{ attributes.defaults({
+    'class': 'fr-sidemenu',
+    'role': 'navigation',
+    'aria-labelledb': 'sidemenu-title'
+}) }}>
+    <div class="fr-sidemenu__inner">
+        <button aria-expanded="false" aria-controls="sidemenu" type="button" class="fr-sidemenu__btn">Dans cette rubrique</button>
+        <div class="fr-collapse" id="sidemenu">
+            {% if menu_title is defined %}
+            <p class="fr-sidemenu__title" id="sidemenu-title">{{ menu_title }}</p>
+            {% endif %}
+            {% block content %}
+            <twig:UxDsfr:Layout:SideMenuList>
+                <twig:UxDsfr:Layout:SideMenuItem>
+                    {% block link %}
+                        <a href="#" class="fr-sidemenu__link">azertyuiop</a>
+                    {% endblock %}
+                </twig:UxDsfr:Layout:SideMenuItem>
+                <twig:UxDsfr:Layout:SideMenuList>
+                    <twig:UxDsfr:Layout:SideMenuItem>
+                        {% block link %}
+                            <a href="#" class="fr-sidemenu__link">tatatata</a>
+                        {% endblock %}
+                    </twig:UxDsfr:Layout:SideMenuItem>
+                </twig:UxDsfr:Layout:SideMenuList>
+                <li class="fr-sidemenu__item">
+                    <button aria-expanded="true" aria-controls="sidemenu-submenu-level-02" aria-current="true" type="button" class="fr-sidemenu__btn">Entrée menu active</button>
+                    <div class="fr-collapse" id="sidemenu-submenu-level-02">
+                        <ul class="fr-sidemenu__list">
+                            <li class="fr-sidemenu__item">
+                                <a href="#" class="fr-sidemenu__link">Accès direct niveau 2</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <button aria-expanded="true" aria-controls="sidemenu-submenu-level-03" aria-current="true" type="button" class="fr-sidemenu__btn">Entrée menu active</button>
+                                <div class="fr-collapse" id="sidemenu-submenu-level-03">
+                                    <ul class="fr-sidemenu__list">
+                                        <li class="fr-sidemenu__item">
+                                            <a href="#" class="fr-sidemenu__link">Accès direct niveau 3</a>
+                                        </li>
+                                        <li class="fr-sidemenu__item">
+                                            <a aria-current="page" href="#" class="fr-sidemenu__link">Accès direct niveau 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="fr-sidemenu__item">
+                    <a href="#" class="fr-sidemenu__link">Accès direct</a>
+                </li>
+            </twig:UxDsfr:Layout:SideMenuList>
+            {% endblock %}
+        </div>
+    </div>
+</nav>

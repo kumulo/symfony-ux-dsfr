@@ -1,0 +1,8 @@
+<section {{ attributes.defaults({ 'class': 'fr-accordion' }) }}>
+    <h3 class="fr-accordion__title">
+        <button type="button" class="fr-accordion__btn" aria-expanded="{{ this.expanded }}" aria-controls="{{ this.accordionId }}">{% block title %}{% endblock %}</button>
+    </h3>
+    <div id="{{ this.accordionId }}" class="fr-collapse">
+        {% block content %}{% endblock %}
+    </div>
+</section>

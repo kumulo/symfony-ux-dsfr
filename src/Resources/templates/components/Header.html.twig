@@ -1,0 +1,34 @@
+<header {{ attributes.defaults({ 'role':'banner', 'class':'fr-header', 'data-fr-js-header-actionee':'true' }) }}>
+    {% set header_navigation %}{% block header_navigation %}{% endblock %}{% endset %}
+    {% set header_service_title %}{% block header_service_title %}{% endblock %}{% endset %}
+    {% set service_tag %}{% block header_service_tag %}{% endblock %}{% endset %}
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <twig:UxDsfr:Header:Brand
+                    service_link="{{ service_link }}"
+                    service_logo="{{ service_logo }}"
+                    show_menu_button="{{ show_menu_button }}"
+                    show_search_button="{{ show_search_button }}"
+                    search_modal_id="{{ search_modal_id }}"
+                    menu_id="{{ menu_id }}"
+                >
+                    {% block brand_service_title %}{{ header_service_title }}{% endblock %}
+                    {% block brand_service_tag %}{{ service_tag }}{% endblock %}
+                </twig:UxDsfr:Header:Brand>
+            </div>
+        </div>
+    </div>
+    {% if header_navigation %}
+    <div class="fr-header__menu fr-modal" id="{{ menu_id }}" aria-labelledby="header-menu-btn">
+        <div class="fr-container">
+            <button aria-controls="{{ menu_id }}" title="{{ 'utils.close'|trans({}, 'dsfr') }}" type="button" class="fr-btn--close fr-btn">
+                {{ 'utils.close'|trans({}, 'dsfr') }}
+            </button>
+            <twig:UxDsfr:Header:Nav>
+                {{ header_navigation }}
+            </twig:UxDsfr:Header:Nav>
+        </div>
+    </div>
+    {% endif %}
+</header>

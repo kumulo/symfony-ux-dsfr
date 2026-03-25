@@ -1,0 +1,6 @@
+controllers:
+  resource:
+    path: ../../Controller/
+    namespace: SymfonyUxDsfr\Controller
+  type: attribute
+

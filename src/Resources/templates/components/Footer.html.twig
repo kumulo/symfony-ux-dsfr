@@ -1,0 +1,56 @@
+<footer class="fr-footer" role="contentinfo">
+    <div class="fr-container">
+        <div class="fr-footer__body">
+            {% if logo_title %}
+                <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo">{{ logo_title }}</twig:UxDsfr:Footer:Logo>
+            {% else %}
+                <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo"></twig:UxDsfr:Footer:Logo>
+            {% endif %}
+            <div class="fr-footer__content">
+                {% block footer_content %}
+                {% endblock %}
+            </div>
+        </div>
+        {% if partners %}
+        <div class="fr-footer__partners">
+            {% if partners.title is defined %}<h2 class="fr-footer__partners-title">{{ partners.title }}</h2>{% endif %}
+            <div class="fr-footer__partners-logos">
+                {% if partners.main is defined %}
+                <div class="fr-footer__partners-main">
+                    <twig:UxDsfr:Footer:PartnerLink>
+                    </twig:UxDsfr:Footer:PartnerLink>
+                </div>
+                {% endif %}
+                {% if partners.subs is defined %}
+                <div class="fr-footer__partners-sub">
+                    <ul>
+                        <li>
+                            <twig:UxDsfr:Footer:PartnerLink>
+                            </twig:UxDsfr:Footer:PartnerLink>
+                        </li>
+                        <li>
+                            <twig:UxDsfr:Footer:PartnerLink>
+                            </twig:UxDsfr:Footer:PartnerLink>
+                        </li>
+                        <li>
+                            <twig:UxDsfr:Footer:PartnerLink>
+                            </twig:UxDsfr:Footer:PartnerLink>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="fr-footer__bottom">
+            {% set footer_menu %}{% block footer_menu %}{% endblock %}{% endset %}
+            {% if footer_menu %}
+            {{ footer_menu }}
+            {% endif %}
+            <div class="fr-footer__bottom-copy">
+                <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

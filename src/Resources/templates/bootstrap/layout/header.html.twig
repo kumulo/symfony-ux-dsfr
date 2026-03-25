@@ -1,0 +1,82 @@
+<div class="fr-header__body">
+    <div class="fr-container">
+        <div class="fr-header__body-row">
+            <twig:UxDsfr:Header:Brand></twig:UxDsfr:Header:Brand>
+
+            <div class="fr-header__tools">
+                <div class="fr-header__tools-links" data-fr-js-header-links="true">
+                    <a id="header__tools--newsletter" href="#" class="fr-icon-chat-3-line fr-btn--icon-left fr-btn fr-icon-chat-3-line" data-fr-js-button-actionee="true">Être tenu informé</a>
+
+                    <div class="dsfr-doc-version fr-nav" id="version" data-fr-js-navigation="true" data-fr-js-navigation-actionee="true">
+                        <div class="fr-nav__item fr-nav__item--align-right" data-fr-js-navigation-item="true">
+                            <button aria-controls="version-collapse" aria-expanded="false" title="Sélectionner une version" type="button" id="header__tools--version" class="dsfr-doc-version__btn fr-btn fr-btn--tertiary" data-fr-js-collapse-button="true" data-fr-js-button-actionee="true">
+                                v1.14
+                            </button>
+
+                            <div class="fr-collapse dsfr-doc-version__menu fr-menu" id="version-collapse" data-fr-js-collapse="true" style="--collapse: -84px;" data-fr-js-navigation-section-actionee="true">
+                                <ul class="fr-menu__list">
+                                    <li>
+                                        <a class="dsfr-doc-version__version fr-nav__link" href="#" id="version-1" aria-current="true" data-fr-js-navigation-link-actionee="true">v1.14&nbsp;<span class="fr-badge fr-badge--new fr-badge--sm">courante</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fr-header__search fr-modal" id="search-modal" data-fr-js-modal="true" data-fr-js-header-modal="true" data-fr-js-header-modal-actionee="true" data-fr-js-modal-actionee="true">
+                    <div class="fr-container fr-container-lg--fluid">
+                        <button aria-controls="search-modal" title="Fermer" type="button" id="button-3" class="fr-btn--close fr-btn" data-fr-js-modal-button="true" data-fr-js-header-modal-button-actionee="true">
+                            Fermer
+                        </button>
+
+                        <div class="fr-search-bar" id="search" role="search" data-fr-js-search-actionee="true">
+                            <label class="fr-label" for="search-input">
+                                Rechercher
+                            </label>
+
+                            <input class="fr-input" aria-describedby="search-input-messages" placeholder="Rechercher" id="search-input" type="search"><div class="dsfr-doc-search-results--dropdown" aria-live="polite"></div>
+
+                            <div class="fr-messages-group" id="search-input-messages" aria-live="polite"></div>
+
+                            <button data-href="#" title="Rechercher" type="button" id="search-button" class="fr-btn" data-fr-js-button-actionee="true">
+                                Rechercher
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fr-header__menu fr-modal" id="menu-modal" data-fr-js-modal="true" data-fr-js-header-modal="true" data-fr-js-header-modal-actionee="true" data-fr-js-modal-actionee="true">
+    <div class="fr-container">
+        <button aria-controls="menu-modal" title="Fermer" type="button" id="button-4" class="fr-btn--close fr-btn" data-fr-js-modal-button="true" data-fr-js-header-modal-button-actionee="true">
+            Fermer
+        </button>
+
+        <div class="fr-header__menu-links">
+            <a id="header__tools--newsletter-mobile" href="#" class="fr-icon-chat-3-line fr-btn--icon-left fr-btn fr-icon-chat-3-line" data-fr-js-button-actionee="true">Être tenu informé</a>
+
+            <div class="dsfr-doc-version fr-nav" id="version-mobile" data-fr-js-navigation="true" data-fr-js-navigation-actionee="true">
+                <div class="fr-nav__item fr-nav__item--align-right" data-fr-js-navigation-item="true">
+                    <button aria-controls="version-collapse-mobile" aria-expanded="false" title="Sélectionner une version" type="button" id="header__tools--version-mobile" class="dsfr-doc-version__btn fr-btn fr-btn--tertiary" data-fr-js-collapse-button="true" data-fr-js-button-actionee="true">
+                        v1.14
+                    </button>
+
+                    <div class="fr-collapse dsfr-doc-version__menu fr-menu" id="version-collapse-mobile" data-fr-js-collapse="true" data-fr-js-navigation-section-actionee="true" style="--collapse: 0px;">
+                        <ul class="fr-menu__list">
+                            <li>
+                                <a class="dsfr-doc-version__version fr-nav__link" href="#" id="version-1-mobile" aria-current="true" data-fr-js-navigation-link-actionee="true">v1.14&nbsp;<span class="fr-badge fr-badge--new fr-badge--sm">courante</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <twig:UxDsfr:Header:Nav>
+            {% include '@UxDsfr/bootstrap/layout/nav.html.twig' %}
+        </twig:UxDsfr:Header:Nav>
+    </div>
+</div>

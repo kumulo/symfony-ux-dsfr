@@ -1,0 +1,59 @@
+{
+  "name": "kumulo/symfony-ux-dsfr",
+  "description": "Symfony UX DSFR bundle",
+  "type": "bundle",
+  "license": "public",
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "keywords": [
+    "gouvfr",
+    "dsfr",
+    "symfony-ux"
+  ],
+  "require": {
+    "php": ">=8.3",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "symfony/asset": "^6.4|^7.4",
+    "symfony/asset-mapper": "^6.4|^7.4",
+    "symfony/translation": "^6.4|^7.4",
+    "symfony/twig-bundle": "^6.4|^7.4",
+    "symfony/ux-icons": "^2.34",
+    "symfony/ux-twig-component": "^2.32",
+    "symfony/yaml": "^6.4|^7.4",
+    "twig/extra-bundle": "^2.12|^3.23",
+    "twig/twig": "^2.12|^3.23"
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true,
+      "symfony/flex": true,
+      "symfony/runtime": true
+    },
+    "bump-after-update": true,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "SymfonyUxDsfr\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SymfonyUxDsfr\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "7.4.*"
+    }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.93.1",
+    "phpstan/phpstan": "^2.1.38",
+    "phpstan/phpstan-doctrine": "^2.0.14",
+    "phpstan/phpstan-symfony": "^2.0.12",
+    "symfony/webpack-encore-bundle": "^2.4"
+  }
+}

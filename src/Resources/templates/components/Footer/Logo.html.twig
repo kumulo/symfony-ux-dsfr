@@ -1,0 +1,15 @@
+<div class="fr-footer__brand fr-enlarge-link">
+    {% set logo_name %}{% block content %}République<br>Française{% endblock %}{% endset %}
+    <twig:UxDsfr:GouvLogo>
+        {{ logo_name }}
+    </twig:UxDsfr:GouvLogo>
+    {% if link is not empty %}
+    <a href="{{ link }}" target="_blank" class="fr-footer__brand-link">
+    {% endif %}
+    {% if service_logo %}
+        <img class="fr-footer__logo" style="width: 3.5rem" src="{{ service_logo }}" />
+    {% endif %}
+    {% if link is not empty %}
+    </a>
+    {% endif %}
+</div>
