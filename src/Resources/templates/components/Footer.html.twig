@@ -7,8 +7,7 @@
                 <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo"></twig:UxDsfr:Footer:Logo>
             {% endif %}
             <div class="fr-footer__content">
-                {% block footer_content %}
-                {% endblock %}
+                {% block footer_content %}{% endblock %}
             </div>
         </div>
         {% if partners %}
@@ -17,25 +16,19 @@
             <div class="fr-footer__partners-logos">
                 {% if partners.main is defined %}
                 <div class="fr-footer__partners-main">
-                    <twig:UxDsfr:Footer:PartnerLink>
+                    <twig:UxDsfr:Footer:PartnerLink :link="partners.main.link" :asset="partners.main.asset" :title="partners.main.title">
                     </twig:UxDsfr:Footer:PartnerLink>
                 </div>
                 {% endif %}
                 {% if partners.subs is defined %}
                 <div class="fr-footer__partners-sub">
                     <ul>
+                        {% for partner in partners.subs %}
                         <li>
-                            <twig:UxDsfr:Footer:PartnerLink>
+                            <twig:UxDsfr:Footer:PartnerLink :link="partner.link" :asset="partner.asset" :title="partner.title">
                             </twig:UxDsfr:Footer:PartnerLink>
                         </li>
-                        <li>
-                            <twig:UxDsfr:Footer:PartnerLink>
-                            </twig:UxDsfr:Footer:PartnerLink>
-                        </li>
-                        <li>
-                            <twig:UxDsfr:Footer:PartnerLink>
-                            </twig:UxDsfr:Footer:PartnerLink>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 {% endif %}

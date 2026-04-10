@@ -1,7 +1,6 @@
 <header {{ attributes.defaults({ 'role':'banner', 'class':'fr-header', 'data-fr-js-header-actionee':'true' }) }}>
     {% set header_navigation %}{% block header_navigation %}{% endblock %}{% endset %}
-    {% set header_service_title %}{% block header_service_title %}{% endblock %}{% endset %}
-    {% set service_tag %}{% block header_service_tag %}{% endblock %}{% endset %}
+    {% set header_tools %}{% block header_tools %}{% endblock %}{% endset %}
     <div class="fr-header__body">
         <div class="fr-container">
             <div class="fr-header__body-row">
@@ -14,8 +13,59 @@
                     menu_id="{{ menu_id }}"
                 >
                     {% block brand_service_title %}{{ header_service_title }}{% endblock %}
-                    {% block brand_service_tag %}{{ service_tag }}{% endblock %}
+                    {% block brand_service_tag %}{{ header_service_tag }}{% endblock %}
                 </twig:UxDsfr:Header:Brand>
+                {% if header_tools or show_search_button or availables_languages|length > 1 %}
+                <div class="fr-header__tools">
+                    {% if header_tools or availables_languages %}
+                        <div class="fr-header__tools-links">
+                            {{ header_tools }}
+                            {% if availables_languages and availables_languages|length > 1 %}
+                                <div id="header-translate" class="fr-translate fr-nav">
+                                    <div class="fr-nav__item fr-nav__item--align-right">
+                                        <button aria-controls="translate-collapse" aria-expanded="false" title="Sélectionner une langue" type="button" class="fr-translate__btn fr-btn fr-btn--tertiary">
+                                            {{ app.request.locale|upper }}
+                                            <span class="fr-hidden-lg">&nbsp;- {{ availables_languages[app.request.locale].label }}</span>
+                                        </button>
+                                        <div class="fr-collapse fr-translate__menu fr-menu" id="translate-collapse">
+                                            <ul class="fr-menu__list">
+                                                {% for key, language in availables_languages %}
+                                                    <li>
+                                                        <a class="fr-translate__language fr-nav__link" hreflang="{{ key }}" lang="{{ key }}" href="{{ language.href }}"{% if key == app.request.locale %} aria-current="true"{% endif %}>{{ language.label }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if show_search_button %}
+                    <div class="fr-header__search fr-modal" id="search-modal" data-fr-js-modal="true" data-fr-js-header-modal="true" data-fr-js-header-modal-actionee="true" data-fr-js-modal-actionee="true">
+                        <div class="fr-container fr-container-lg--fluid">
+                            <button aria-controls="search-modal" title="Fermer" type="button" id="button-3" class="fr-btn--close fr-btn" data-fr-js-modal-button="true" data-fr-js-header-modal-button-actionee="true">
+                                Fermer
+                            </button>
+
+                            <div class="fr-search-bar" id="search" role="search" data-fr-js-search-actionee="true">
+                                <label class="fr-label" for="search-input">
+                                    Rechercher
+                                </label>
+
+                                <input class="fr-input" aria-describedby="search-input-messages" placeholder="Rechercher" id="search-input" type="search"><div class="dsfr-doc-search-results--dropdown" aria-live="polite"></div>
+
+                                <div class="fr-messages-group" id="search-input-messages" aria-live="polite"></div>
+
+                                <button data-href="/version-courante/fr/resultats-de-recherche" title="Rechercher" type="button" id="search-button" class="fr-btn" data-fr-js-button-actionee="true">
+                                    Rechercher
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -28,6 +78,8 @@
             <twig:UxDsfr:Header:Nav>
                 {{ header_navigation }}
             </twig:UxDsfr:Header:Nav>
+            <div class="fr-header__menu-links">
+            </div>
         </div>
     </div>
     {% endif %}

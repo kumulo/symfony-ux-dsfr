@@ -34,16 +34,27 @@ class Footer
             $data['partners']['main'] = $this->resolvePartner($data['partners']['main']);
         }
 
+        if(isset($data['partners']['subs'])) {
+            foreach ($data['partners']['subs'] as $key => $partner) {
+                $data['partners']['subs'][$key] = $this->resolvePartner($partner);
+            }
+        }
+
         return $resolver->resolve($data) + $data;
     }
 
     private function resolvePartner(array $data): array {
         $partnerResolver = new OptionsResolver();
+        $partnerResolver->setIgnoreUndefined();
+        $partnerResolver->setDefaults([
+            'link' => '',
+            'title' => '',
+            'asset' => '',
+        ]);
         $partnerResolver->setAllowedTypes('link', 'string');
         $partnerResolver->setAllowedTypes('title', 'string');
         $partnerResolver->setAllowedTypes('asset', 'string');
 
-        dump($data);
         return $partnerResolver->resolve($data) + $data;
     }
 }

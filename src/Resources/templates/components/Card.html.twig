@@ -1,24 +1,27 @@
+{% set title %}{% block card_title %}{% endblock %}{% endset %}
 <div {{ attributes.defaults({'class': 'fr-card ' ~ link_type}) }}>
     <div class="fr-card__body">
         <div class="fr-card__content">
+            <h3 class="fr-card__title">
+                {% if href %}<a href="{{ href }}">{% endif %}
+                    {{ title }}
+                {% if href %}</a>{% endif %}
+            </h3>
             {% block card_content %}
-                <h3 class="fr-card__title">
-                    <a href="#">Titre de la carte</a>
-                </h3>
                 <p class="fr-card__desc">Description de la carte</p>
             {% endblock %}
-            <!-- download <div class="fr-card__end">
-                <p class="fr-card__detail">PDF - 48 ko</p>
-            </div> -->
+            {% if file_size or file_type %}
+            <div class="fr-card__end">
+                <p class="fr-card__detail">{{ {file_type, file_size}|join(' - ') }}</p>
+            </div>
+            {% endif %}
         </div>
     </div>
-    {% if block('card_header') is defined %}
+    {% if card_header %}
         <div class="fr-card__header">
-            {% block card_header %}
             <div class="fr-card__img">
-                <img class="fr-responsive-img" src="{{ asset('/bundles/symfonyuxdsfr/images/placeholder.16x9.png') }}" alt="[À MODIFIER - vide ou texte alternatif de l’image]">
+                <img class="fr-responsive-img" src="{{ card_header }}" alt="{{ card_header_alt }}">
             </div>
-            {% endblock %}
         </div>
     {% endif %}
 </div>

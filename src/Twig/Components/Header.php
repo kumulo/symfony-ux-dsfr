@@ -21,5 +21,7 @@ class Header
     #[ExposeInTemplate]
     public bool $show_search_button = false;
     #[ExposeInTemplate]
+    public array $availables_languages = [];
+    #[ExposeInTemplate]
     public string $search_modal_id = 'search-modal';
 }

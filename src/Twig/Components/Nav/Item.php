@@ -10,5 +10,4 @@ class Item
 {
     #[ExposeInTemplate]
     public ?string $href = null;
-
 }
