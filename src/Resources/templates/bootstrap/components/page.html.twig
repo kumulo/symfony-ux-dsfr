@@ -1,7 +1,8 @@
-{% extends "@UxDsfr/base.html.twig" %}
-
-{% block page_content %}
-    <twig:UxDsfr:Header>
+{% set page_content %}
+    <twig:UxDsfr:Header
+            header_service_title="Symfony UX DSFR"
+            header_service_tag="Implémentation du DSFR dans Symfony"
+    >
         {% include '@UxDsfr/bootstrap/layout/header.html.twig' %}
     </twig:UxDsfr:Header>
     {% if block('body_content') is defined %}
@@ -13,4 +14,9 @@
     </twig:UxDsfr:Layout:Body>
     {% endif %}
     <twig:UxDsfr:Footer />
-{% endblock %}
+{% endset %}
+<twig:UxDsfr:Layout:Page>
+    {% block page %}
+    {{ page_content }}
+    {% endblock %}
+</twig:UxDsfr:Layout:Page>

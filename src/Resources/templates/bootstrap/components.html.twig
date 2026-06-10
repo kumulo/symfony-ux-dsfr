@@ -10,7 +10,7 @@
 {% if block('text_content') is defined %}
     {% set col2 = block('text_content') %}
 {% endif %}
-{% block body_content %}
+{% set content %}
     {% component 'UxDsfr:Layout:TwoColumns' %}
         {% block column1 %}
             {% include('@UxDsfr/bootstrap/components/nav.html.twig') %}
@@ -19,4 +19,9 @@
             {{ col2|raw }}
         {% endblock %}
     {% endcomponent %}
+{% endset %}
+{% block body_content %}
+    <twig:UxDsfr:Layout:Container class="fr-mt-5v">
+        {{ content }}
+    </twig:UxDsfr:Layout:Container>
 {% endblock %}

@@ -1,0 +1,10 @@
+{% set content %}{% block content %}{% endblock %}{% endset %}
+{% if href %}
+<a href="{{ href }}" class="fr-btn fr-btn--{{ variant }}{% if disabled %} fr-btn--disabled{% endif %}"{% if disabled %} aria-disabled="true"{% endif %}>
+    {{ content }}
+</a>
+{% else %}
+<button type="{{ type }}" class="fr-btn fr-btn--{{ variant }}"{% if disabled %} disabled aria-disabled="true"{% endif %}>
+    {{ content }}
+</button>
+{% endif %}

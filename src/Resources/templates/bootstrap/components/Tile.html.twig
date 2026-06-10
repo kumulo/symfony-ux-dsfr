@@ -1,0 +1,40 @@
+{% extends "@UxDsfr/bootstrap/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Tile</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Tile title="Titre de la tuile" desc="Description de la tuile">
+                {% block body %}
+                <p>Contenu supplémentaire.</p>
+                {% endblock %}
+                {% block header %}
+                <div class="fr-tile__pictogram">
+                    <svg aria-hidden="true" class="fr-artwork" viewBox="0 0 80 80" width="80" height="80">
+                        <use class="fr-artwork-decorative" href="/bundles/symfonyuxdsfr/artwork/pictograms/building/city-hall.svg#artwork-decorative"></use>
+                        <use class="fr-artwork-minor" href="/bundles/symfonyuxdsfr/artwork/pictograms/building/city-hall.svg#artwork-minor"></use>
+                        <use class="fr-artwork-major" href="/bundles/symfonyuxdsfr/artwork/pictograms/building/city-hall.svg#artwork-major"></use>
+                    </svg>
+                </div>
+                {% endblock %}
+            </twig:UxDsfr:Tile>
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Code snippel</h3>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Tile title=\"Titre\" desc=\"Desc\"&gt;
+    {% block body %}
+    &lt;p&gt;Contenu.&lt;/p&gt;
+    {% endblock %}
+    {% block header %}
+    &lt;div class=\"fr-tile__pictogram\"&gt;
+        &lt;!-- SVG --&gt;
+    &lt;/div&gt;
+    {% endblock %}
+&lt;/twig:UxDsfr:Tile&gt;" %}
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}

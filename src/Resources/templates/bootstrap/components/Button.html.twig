@@ -1,0 +1,35 @@
+{% extends "@UxDsfr/bootstrap/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Button</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Button>
+                Bouton primaire
+            </twig:UxDsfr:Button>
+            <twig:UxDsfr:Button variant="secondary">
+                Bouton secondaire
+            </twig:UxDsfr:Button>
+            <twig:UxDsfr:Button variant="tertiary">
+                Bouton tertiaire
+            </twig:UxDsfr:Button>
+            <twig:UxDsfr:Button href="#link">
+                Bouton lien
+            </twig:UxDsfr:Button>
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Code snippel</h3>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Button&gt;
+    Bouton primaire
+&lt;/twig:UxDsfr:Button&gt;" %}
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+            {% set code = "&lt;twig:UxDsfr:Button variant=\"secondary\" href=\"#link\"&gt;
+    Bouton secondaire lien
+&lt;/twig:UxDsfr:Button&gt;" %}
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}

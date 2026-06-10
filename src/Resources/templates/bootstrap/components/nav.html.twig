@@ -12,30 +12,49 @@
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
-                <a href="#" class="fr-sidemenu__link">test toto</a>
+                <a href="{{ path('dsfr_components_Button') }}"{% if app.current_route === 'dsfr_components_Button' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Button</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
-        {% set subcontent %}
-            <twig:UxDsfr:Layout:SideMenuItem>
-                {% block link %}
-                    <a href="#" class="fr-sidemenu__link">SideMenu</a>
-                {% endblock %}
-            </twig:UxDsfr:Layout:SideMenuItem>
-            <twig:UxDsfr:Layout:SideMenuItem>
-                {% block link %}
-                    <a href="#" class="fr-sidemenu__link">SideMenuList</a>
-                {% endblock %}
-            </twig:UxDsfr:Layout:SideMenuItem>
-        {% endset %}
-        {% set submun %}
-            <twig:UxDsfr:Layout:SideMenuList>
-                {{ subcontent }}
-            </twig:UxDsfr:Layout:SideMenuList>
-        {% endset %}
         <twig:UxDsfr:Layout:SideMenuItem>
-            {% block submenu %}
-            {{ submun }}
-            {% endblock %}
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Callout') }}"{% if app.current_route === 'dsfr_components_Callout' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Callout</a>
+            {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Highlight') }}"{% if app.current_route === 'dsfr_components_Highlight' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Highlight</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Quote') }}"{% if app.current_route === 'dsfr_components_Quote' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Quote</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Summary') }}"{% if app.current_route === 'dsfr_components_Summary' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Summary</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Table') }}"{% if app.current_route === 'dsfr_components_Table' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Table</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Tabs') }}"{% if app.current_route === 'dsfr_components_Tabs' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Tabs</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Tag') }}"{% if app.current_route === 'dsfr_components_Tag' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Tag</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Tile') }}"{% if app.current_route === 'dsfr_components_Tile' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Tile</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+
     </twig:UxDsfr:Layout:SideMenuList>
 </twig:UxDsfr:Layout:SideMenu>

@@ -1,0 +1,8 @@
+<div class="fr-quote">
+    <blockquote class="fr-quote__text">
+        {% block content %}{% endblock %}
+    </blockquote>
+    {% if author %}
+    <p class="fr-quote__author">{{ author }}{% if source %} - {{ source }}{% endif %}</p>
+    {% endif %}
+</div>

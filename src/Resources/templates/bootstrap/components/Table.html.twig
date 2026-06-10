@@ -1,0 +1,44 @@
+{% extends "@UxDsfr/bootstrap/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Table</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Table>
+                {% block caption %}Tableau d'exemple{% endblock %}
+                <thead>
+                    <tr>
+                        <th>Colonne 1</th>
+                        <th>Colonne 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Donnée 1</td>
+                        <td>Donnée 2</td>
+                    </tr>
+                </tbody>
+            </twig:UxDsfr:Table>
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Code snippel</h3>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Table&gt;
+    {% block caption %}Titre{% endblock %}
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Colonne&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Donnée&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/twig:UxDsfr:Table&gt;" %}
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}

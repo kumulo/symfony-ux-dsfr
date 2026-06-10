@@ -1,0 +1,22 @@
+{% if href %}
+<a href="{{ href }}" class="fr-tile fr-tile--{{ orientation }}">
+{% else %}
+<div class="fr-tile fr-tile--{{ orientation }}">
+{% endif %}
+    <div class="fr-tile__body">
+        {% if title %}
+        <h3 class="fr-tile__title">{{ title }}</h3>
+        {% endif %}
+        {% if desc %}
+        <p class="fr-tile__desc">{{ desc }}</p>
+        {% endif %}
+        {% block body %}{% endblock %}
+    </div>
+    <div class="fr-tile__header">
+        {% block header %}{% endblock %}
+    </div>
+{% if href %}
+</a>
+{% else %}
+</div>
+{% endif %}

@@ -1,0 +1,17 @@
+{% set tabId = 'tabs-' ~ random() %}
+<nav class="fr-tabs" role="navigation">
+    <ul class="fr-tabs__list" role="tablist">
+        {% for key, tab in tabs %}
+        <li role="presentation">
+            <button id="{{ tabId }}-{{ key }}" class="fr-tabs__tab{% if loop.first %} fr-tabs__tab--selected{% endif %}" tabindex="0" role="tab" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="{{ tabId }}-panel-{{ key }}">
+                {{ tab.title }}
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% for key, tab in tabs %}
+<div id="{{ tabId }}-panel-{{ key }}" class="fr-tabs__panel{% if loop.first %} fr-tabs__panel--selected{% endif %}" role="tabpanel" aria-labelledby="{{ tabId }}-{{ key }}">
+    {{ tab.content|raw }}
+</div>
+{% endfor %}

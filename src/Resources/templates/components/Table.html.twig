@@ -1,0 +1,8 @@
+<div class="fr-table{% if noScroll %} fr-table--no-scroll{% endif %}">
+    <table{% if bordered %} class="fr-table--bordered"{% endif %}>
+        {% if not noCaption %}
+        <caption>{% block caption %}{% endblock %}</caption>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </table>
+</div>
