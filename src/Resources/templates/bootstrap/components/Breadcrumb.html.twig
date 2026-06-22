@@ -1,0 +1,39 @@
+{% extends "@UxDsfr/bootstrap/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Breadcrumb (Fil d'Ariane)</h2>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            {# Exemple de fil d'Ariane avec plusieurs éléments, le dernier élément est la page courante #}
+            {% set items = [
+                { 'label': 'Accueil', 'href': '/' },
+                { 'label': 'Documentation', 'href': '/docs' },
+                { 'label': 'Composants' }
+            ] %}
+
+            <twig:UxDsfr:Breadcrumb :items="items" />
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples de code</h3>
+
+        <div class="code-snippet">
+            <h4 class="fr-h5">Twig (tag)</h4>
+            {% set code_tag = "{% set items = [ { 'label': 'Accueil', 'href': '/' }, { 'label': 'Documentation', 'href': '/docs' }, { 'label': 'Composants' } ] %}\n\n&lt;twig:UxDsfr:Breadcrumb items=items /&gt;" %}
+            <pre><code class="language-html">{{ code_tag|raw }}</code></pre>
+
+            <h4 class="fr-h5">Twig (helper {{ '{% component %}'  }})</h4>
+            {% set code_component = "{% set items = [ { 'label': 'Accueil', 'href': '/' }, { 'label': 'Documentation', 'href': '/docs' }, { 'label': 'Composants' } ] %}\n\n{% component 'UxDsfr:Breadcrumb' with { items: items } %}{% endcomponent %}" %}
+            <pre><code class="language-twig">{{ code_component|raw }}</code></pre>
+
+            <h4 class="fr-h5">Personnalisation des attributs</h4>
+            <p>Vous pouvez fournir `attributes` pour changer l'`aria-label` ou ajouter des classes :</p>
+            {% set code_attr = "&lt;twig:UxDsfr:Breadcrumb items=items attributes={ 'aria-label': 'Vous êtes ici', 'class': 'my-breadcrumb' } /&gt;" %}
+            <pre><code class="language-html">{{ code_attr|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}
+

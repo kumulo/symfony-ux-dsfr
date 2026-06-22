@@ -1,0 +1,17 @@
+{# src/Resources/templates/components/Pagination.html.twig #}
+{% set pages = this.pages() %}
+{% if pages|length > 1 %}
+    <nav class="fr-pagination" role="navigation" aria-label="Pagination">
+        <ul class="fr-pagination__list">
+            {% for p in pages %}
+                <li class="fr-pagination__item">
+                    {% if p.current %}
+                        <span class="fr-pagination__link fr-pagination__link--current" aria-current="page">{{ p.number }}</span>
+                    {% else %}
+                        <a href="{{ p.href }}" class="fr-pagination__link">{{ p.number }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

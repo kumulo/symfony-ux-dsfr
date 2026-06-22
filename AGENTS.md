@@ -25,7 +25,8 @@ This is a Symfony UX bundle that provides Twig components implementing the Frenc
 - **Install**: `composer install && npm install`
 - **Build Assets**: `npm run encore dev` or `npm run encore production` (via Symfony Webpack Encore Bundle)
 - **Code Quality**: `vendor/bin/php-cs-fixer fix` and `vendor/bin/phpstan analyse`
-- **Demo**: Controllers in `src/Controller/` render bootstrap templates for component previews
+- **Demo**: Controllers in `src/Controller/` render bootstrap templates for component previews. To view them in a running app, start a Symfony application that loads the bundle (for local previews you can run the host app with `symfony server:start` or a PHP built-in server `php -S localhost:8000 -t public`) and visit the demo routes (e.g. `/components`).
+  - Demo pages for this project are available at: `http://localhost:8080/dsfr/components` (open this URL after starting the host app that serves the bundle).
 
 ## Conventions
 - **Component Naming**: PascalCase PHP classes, kebab-case in templates (e.g., `HeaderNav` → `header-nav`)
@@ -33,9 +34,14 @@ This is a Symfony UX bundle that provides Twig components implementing the Frenc
 - **Attributes**: Use `{{ attributes.defaults({...}) }}` for merging classes/attributes
 - **Code Preferences**: Prefer PHP/Twig over JS, use DSFR CSS, ignore undefined attributes in resolvers
 
+## Documentation
+- **Twig Components**: Documented in `doc/components/` with usage examples and code
+- **Components Demo Pages**: Rendered by controller `src/Controller/ComponentsDemoController.php` for local preview of components
+- **Components Demo Templates**: Each component has a corresponding Twig template in `src/Resources/templates/bootstrap/components/` for rendering the demo page. It shows the component in action and provides code snippets for usage with variations for all the component's variables.
+
 ## Key Files
 - `src/DependencyInjection/DsfrExtension.php`: Configures Twig paths, component defaults, webpack builds
 - `src/Resources/config/services.yaml`: Autowires components and controllers
 - `webpack.config.js`: Encore config with DSFR asset copying
-- `src/Resources/assets/dsfr/index.js`: Imports and initializes DSFR JS/CSS</content>
-<parameter name="filePath">/home/kumulo/projects/symfony-ux-dsfr/AGENTS.md
+- `src/Resources/assets/dsfr/index.js`: Imports and initializes DSFR JS/CSS
+- `src/Resources/assets/index.js`: top-level webpack entry that imports the `dsfr` sub-entry (this file is listed as `main` in `package.json`).

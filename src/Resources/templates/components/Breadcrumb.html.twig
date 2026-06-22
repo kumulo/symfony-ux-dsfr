@@ -1,0 +1,14 @@
+{# src/Resources/templates/components/Breadcrumb.html.twig #}
+<nav {{ attributes.defaults({ 'class': 'fr-breadcrumb' }) }}>
+    <ol class="fr-breadcrumb__list">
+        {% for item in items %}
+            <li class="fr-breadcrumb__item">
+                {% if item.href is defined and item.href %}
+                    <a href="{{ item.href }}" class="fr-breadcrumb__link">{{ item.label }}</a>
+                {% else %}
+                    <span class="fr-breadcrumb__link" aria-current="page">{{ item.label }}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+</nav>

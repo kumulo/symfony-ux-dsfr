@@ -27,6 +27,14 @@ class ComponentsDemoController extends AbstractController {
     public function Callout() {
         return $this->render('@UxDsfr/bootstrap/components/Callout.html.twig');
     }
+    #[Route('/Header', '_Header')]
+    public function Header() {
+        return $this->render('@UxDsfr/bootstrap/components/Header.html.twig');
+    }
+    #[Route('/Breadcrumb', '_Breadcrumb')]
+    public function Breadcrumb() {
+        return $this->render('@UxDsfr/bootstrap/components/Breadcrumb.html.twig');
+    }
     #[Route('/Highlight', '_Highlight')]
     public function Highlight() {
         return $this->render('@UxDsfr/bootstrap/components/Highlight.html.twig');

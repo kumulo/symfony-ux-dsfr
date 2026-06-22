@@ -4,19 +4,20 @@
     <h2 class="fr-h3">Tabs</h2>
     <div class="fr-mt-4v">
         <h3 class="fr-h4">Rendu</h3>
+        {% set tabs = [
+            {'title': 'Onglet 1', 'content': 'Contenu de l\'onglet 1.'},
+            {'title': 'Onglet 2', 'content': 'Contenu de l\'onglet 2.'}
+        ] %}
         <div class="fr-mt-4v">
-            <twig:UxDsfr:Tabs :tabs="[
-                {'title': 'Onglet 1', 'content': '<p>Contenu de l\'onglet 1.</p>'},
-                {'title': 'Onglet 2', 'content': '<p>Contenu de l\'onglet 2.</p>'}
-            ]"/>
+            <twig:UxDsfr:Tabs :tabs="tabs"/>
         </div>
     </div>
     <div class="fr-mt-4v">
         <h3 class="fr-h4">Code snippel</h3>
         <div class="code-snippet">
             {% set code = "&lt;twig:UxDsfr:Tabs :tabs=\"[
-    {'title': 'Onglet 1', 'content': '&lt;p&gt;Contenu 1.&lt;/p&gt;'},
-    {'title': 'Onglet 2', 'content': '&lt;p&gt;Contenu 2.&lt;/p&gt;'}
+    {'title': 'Onglet 1', 'content': 'Contenu 1.'},
+    {'title': 'Onglet 2', 'content': 'Contenu 2.'}
 ]\"/&gt;" %}
             <pre><code class="language-html">{{ code|raw }}</code></pre>
         </div>

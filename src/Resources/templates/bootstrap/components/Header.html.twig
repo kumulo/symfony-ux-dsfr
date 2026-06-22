@@ -1,0 +1,122 @@
+{% extends "@UxDsfr/bootstrap/components.html.twig" %}
+
+{% block text_content %}
+    <h1 class="fr-h1">Header</h1>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+        Le composant <code>Header</code> rend l'en-tête DSFR complet : marque (brand), navigation, outils (recherche, sélection de langue...). Il s'appuie sur plusieurs blocs Twig réutilisables et sur des sous-composants <code>UxDsfr:Header:Brand</code>, <code>UxDsfr:Header:Nav</code>, <code>UxDsfr:Header:Logo</code>.
+        </twig:UxDsfr:Callout>
+    </div>
+    <div class="fr-mt-4v">
+        <h2 class="fr-h3">Rendu de base</h2>
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Header
+                    header_service_title="Mon service"
+                    header_service_tag="Ma tagline"
+            >
+            </twig:UxDsfr:Header>
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Header
+        header_service_title=\"Mon service\"
+        header_service_tag=\"Ma tagline\"
+    &gt;
+&lt;/twig:UxDsfr:Header&gt;" %}
+            <twig:UxDsfr:Highlight><pre><code class="language-html">{{ code|raw }}</code></pre></twig:UxDsfr:Highlight>
+        </div>
+    </div>
+    <h2 class="fr-h3 fr-mt-8v">Ajouter un lien</h2>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Header
+                header_service_title="Mon service"
+                header_service_tag="Ma tagline"
+                service_link="#mon-lien"
+        >
+        </twig:UxDsfr:Header>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Header
+        header_service_title=\"Mon service\"
+        header_service_tag=\"Ma tagline\"
+        service_link=\"#mon-lien\"
+    &gt;
+&lt;/twig:UxDsfr:Header&gt;" %}
+            <twig:UxDsfr:Highlight>
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+        </div>
+    </div>
+    <h2 class="fr-h3 fr-mt-8v">Ajouter un logo de service</h2>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Header
+                header_service_title="Mon service"
+                header_service_tag="Ma tagline"
+                service_logo="{{ asset('bundles/symfonyuxdsfr/images/placeholder.3x4.png') }}"
+        >
+        </twig:UxDsfr:Header>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Header
+        header_service_title=\"Mon service\"
+        header_service_tag=\"Ma tagline\"
+        service_logo=\"lien/vers/mon/image.png\"
+    &gt;
+&lt;/twig:UxDsfr:Header&gt;" %}
+            <twig:UxDsfr:Highlight>
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+        </div>
+    </div>
+    <h2 class="fr-h3 fr-mt-8v">Ajouter une navigation</h2>
+    <div class="fr-mt-4v">
+        {% set sub_menu %}
+            <twig:UxDsfr:Nav:Item href="#lien1">Lien 1</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien2">Lien 2</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien3">Lien 3</twig:UxDsfr:Nav:Item>
+        {% endset %}
+        {% set navigation %}
+            <twig:UxDsfr:Nav:Item href="#lien1">Lien 1</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien2">Lien 2</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien3">
+                Lien 3
+                {% block sub_menu %}
+                    {{ sub_menu }}
+                {% endblock %}
+            </twig:UxDsfr:Nav:Item>
+        {% endset %}
+        <twig:UxDsfr:Header
+                header_service_title="Mon service"
+                header_service_tag="Ma tagline"
+                show_menu_button="true"
+        >
+            {% block header_navigation %}
+                {{ navigation }}
+            {% endblock %}
+        </twig:UxDsfr:Header>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Header
+        header_service_title=\"Mon service\"
+        header_service_tag=\"Ma tagline\"
+        show_menu_button=\"true\"
+    &gt;
+        {% block header_navigation %}
+            {{ navigation }}
+        {% endblock %}
+&lt;/twig:UxDsfr:Header&gt;" %}
+            <twig:UxDsfr:Highlight>
+                <pre><code class="language-html">{{ code|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+        </div>
+    </div>
+    </div>
+{% endblock %}

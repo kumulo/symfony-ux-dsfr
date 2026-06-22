@@ -10,4 +10,10 @@ class Item
 {
     #[ExposeInTemplate]
     public ?string $href = null;
+
+    #[ExposeInTemplate]
+    public function getSubMenuId(): ?string
+    {
+        return 'navigation-' . rand();
+    }
 }

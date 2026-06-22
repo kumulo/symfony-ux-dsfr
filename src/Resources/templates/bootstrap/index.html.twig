@@ -1,75 +1,77 @@
 {% extends "@UxDsfr/bootstrap/components/page.html.twig" %}
 
 {% block body_content %}
-    <twig:UxDsfr:Layout:TwoColumns class="fr-mb-5v" position="left">
-        {%- block column1 -%}
-            <twig:UxDsfr:Card>
-                {% block card_content %}
-                    <h3 class="fr-card__title">
-                        <a href="#">Titre de l'overide</a>
-                    </h3>
-                    <p class="fr-card__desc">Description de l'overide</p>
-                {% endblock %}
-            </twig:UxDsfr:Card>
-        {%- endblock -%}
-        {%- block column2 -%}
-            <div>
-                <twig:UxDsfr:Badge type="success" size="sm" content="New" />
-                <a class="fr-link" aria-describedby="tooltip-1" href="#">
-                    Exemple
-                </a>
-                <twig:UxDsfr:Tooltip id="tooltip-1" content="This is a tooltip" position="bottom" />
-            </div>
-        {%- endblock -%}
-    </twig:UxDsfr:Layout:TwoColumns>
+    <twig:UxDsfr:Layout:Container class="fr-mt-5v">
+        <twig:UxDsfr:Layout:TwoColumns class="fr-mb-5v" position="left">
+            {%- block column1 -%}
+                <twig:UxDsfr:Card>
+                    {% block card_content %}
+                        <h3 class="fr-card__title">
+                            <a href="#">Titre de l'overide</a>
+                        </h3>
+                        <p class="fr-card__desc">Description de l'overide</p>
+                    {% endblock %}
+                </twig:UxDsfr:Card>
+            {%- endblock -%}
+            {%- block column2 -%}
+                <div>
+                    <twig:UxDsfr:Badge type="success" size="sm" content="New" />
+                    <a class="fr-link" aria-describedby="tooltip-1" href="#">
+                        Exemple
+                    </a>
+                    <twig:UxDsfr:Tooltip id="tooltip-1" content="This is a tooltip" position="bottom" />
+                </div>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:TwoColumns>
 
-    {% set column1 %}
-        <twig:UxDsfr:Alert/>
-        <twig:UxDsfr:Alert type="warning"/>
-        <twig:UxDsfr:Alert type="error"/>
-        <twig:UxDsfr:Alert type="success"/>
-    {% endset %}
-    {% set column2 %}
-        <twig:UxDsfr:Accordion:Group class="fr-mt-5v">
-            <twig:UxDsfr:Accordion>
-                {% block title %}toto title{% endblock %}
-                toto
-            </twig:UxDsfr:Accordion>
-            <twig:UxDsfr:Accordion expanded="true">
-                {% block title %}tata title{% endblock %}
-                <p>tata</p>
-                <twig:UxDsfr:Alert type="error">
-                    ceci est l'Alert de l'accordéon
-                </twig:UxDsfr:Alert>
-                <p>tata</p>
-                <p>tata</p>
-                <p>tata</p>
-                <p>tata</p>
-            </twig:UxDsfr:Accordion>
-        </twig:UxDsfr:Accordion:Group>
-    {% endset%}
-    <twig:UxDsfr:Layout:TwoColumns class="fr-mb-5v">
-        {% block column1 %}
-            {{ column1 }}
-        {% endblock %}
-        {% block column2 %}
-            {{ column2 }}
-        {% endblock %}
-    </twig:UxDsfr:Layout:TwoColumns>
-    {% set grid %}
-        <twig:UxDsfr:Layout:Column>
-            {% block col_content %}Col 1{% endblock %}
-        </twig:UxDsfr:Layout:Column>
-        <twig:UxDsfr:Layout:Column>
-            {% block col_content %}Col 2{% endblock %}
-        </twig:UxDsfr:Layout:Column>
-        <twig:UxDsfr:Layout:Column>
-            {% block col_content %}Col 3{% endblock %}
-        </twig:UxDsfr:Layout:Column>
-    {% endset %}
-    <twig:UxDsfr:Layout:Grid class="fr-mt-5v fr-mb-5v">
-        {% block grid_content %}
-            {{ grid }}
-        {% endblock %}
-    </twig:UxDsfr:Layout:Grid>
+        {% set column1 %}
+            <twig:UxDsfr:Alert/>
+            <twig:UxDsfr:Alert type="warning"/>
+            <twig:UxDsfr:Alert type="error"/>
+            <twig:UxDsfr:Alert type="success"/>
+        {% endset %}
+        {% set column2 %}
+            <twig:UxDsfr:Accordion:Group class="fr-mt-5v">
+                <twig:UxDsfr:Accordion>
+                    {% block title %}toto title{% endblock %}
+                    toto
+                </twig:UxDsfr:Accordion>
+                <twig:UxDsfr:Accordion expanded="true">
+                    {% block title %}tata title{% endblock %}
+                    <p>tata</p>
+                    <twig:UxDsfr:Alert type="error">
+                        ceci est l'Alert de l'accordéon
+                    </twig:UxDsfr:Alert>
+                    <p>tata</p>
+                    <p>tata</p>
+                    <p>tata</p>
+                    <p>tata</p>
+                </twig:UxDsfr:Accordion>
+            </twig:UxDsfr:Accordion:Group>
+        {% endset%}
+        <twig:UxDsfr:Layout:TwoColumns class="fr-mb-5v">
+            {% block column1 %}
+                {{ column1 }}
+            {% endblock %}
+            {% block column2 %}
+                {{ column2 }}
+            {% endblock %}
+        </twig:UxDsfr:Layout:TwoColumns>
+        {% set grid %}
+            <twig:UxDsfr:Layout:Column>
+                {% block col_content %}Col 1{% endblock %}
+            </twig:UxDsfr:Layout:Column>
+            <twig:UxDsfr:Layout:Column>
+                {% block col_content %}Col 2{% endblock %}
+            </twig:UxDsfr:Layout:Column>
+            <twig:UxDsfr:Layout:Column>
+                {% block col_content %}Col 3{% endblock %}
+            </twig:UxDsfr:Layout:Column>
+        {% endset %}
+        <twig:UxDsfr:Layout:Grid class="fr-mt-5v fr-mb-5v">
+            {% block grid_content %}
+                {{ grid }}
+            {% endblock %}
+        </twig:UxDsfr:Layout:Grid>
+    </twig:UxDsfr:Layout:Container>
 {% endblock %}

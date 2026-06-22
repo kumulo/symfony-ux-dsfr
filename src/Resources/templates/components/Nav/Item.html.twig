@@ -4,7 +4,17 @@
     class:"fr-nav__item",
     'data-fr-js-navigation-item': "true" })
 }}>
-   {% if href %}
+    {% if block('sub_menu') %}
+        {% set subId = this.getSubMenuId() %}
+        <button type="button" class="fr-nav__btn" data-fr-js-collapse-button="true" aria-controls="{{ subId }}" aria-expanded="false">
+            {{ link_content }}
+        </button>
+        <div class="fr-collapse fr-menu" id="{{ subId }}" data-fr-js-collapse="true" data-fr-js-navigation-section-actionee="true" >
+            <ul class="fr-menu__list">
+            {{ sub_menu }}
+            </ul>
+        </div>
+    {% elseif href %}
         <a type="link"{% if app.request.pathInfo === href %} aria-current="page"{% endif %} href="{{ href }}" class="fr-nav__link" data-fr-js-navigation-link-actionee="true">
             {{ link_content }}
         </a>
@@ -12,10 +22,5 @@
         <span class="fr-nav__link" data-fr-js-navigation-link-actionee="true">
             {{ link_content }}
         </span>
-    {% endif %}
-    {% if sub_menu %}
-        <ul>
-        {{ sub_menu }}
-        </ul>
     {% endif %}
 </li>

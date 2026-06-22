@@ -1,0 +1,15 @@
+{# src/Resources/templates/components/Dropdown.html.twig #}
+<div {{ attributes.defaults({ 'class': 'fr-dropdown' }) }}>
+    <button class="fr-btn fr-btn--dropdown" type="button">{{ label }}</button>
+    <ul class="fr-dropdown__menu">
+        {% for item in items %}
+            <li class="fr-dropdown__item">
+                {% if item.href is defined and item.href %}
+                    <a href="{{ item.href }}" class="fr-dropdown__link">{{ item.label }}</a>
+                {% else %}
+                    <span class="fr-dropdown__link">{{ item.label }}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+{# src/Resources/templates/components/Input.html.twig #}
+<div {{ attributes.defaults({ 'class': 'fr-input-group' }) }}>
+    {% if label %}
+        <label class="fr-label" for="{{ id }}">{{ label }}</label>
+    {% endif %}
+    <input
+            id="{{ id }}"
+            name="{{ name }}"
+            type="{{ type }}"
+            value="{{ value }}"
+            {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
+            {{ attributes.defaults({ 'class': 'fr-input' }) }}
+    />
+    {% block help %}{% endblock %}
+</div>
