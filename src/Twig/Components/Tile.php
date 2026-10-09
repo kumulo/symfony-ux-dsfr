@@ -31,6 +31,7 @@ class Tile
         $resolver->setIgnoreUndefined();
         $resolver->setDefaults(['orientation' => 'horizontal']);
         $resolver->setAllowedValues('orientation', ['horizontal', 'vertical']);
+
         return $resolver->resolve($data) + $data;
     }
 }

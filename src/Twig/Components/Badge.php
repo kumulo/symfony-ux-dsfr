@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
+
 #[AsTwigComponent]
 class Badge
 {
@@ -32,6 +33,7 @@ class Badge
 
         $resolver->setAllowedValues('type', ['info', 'warning', 'error', 'success']);
         $resolver->setAllowedValues('size', ['sm', 'md', 'lg']);
+
         return $resolver->resolve($data) + $data;
     }
 }

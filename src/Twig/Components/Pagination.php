@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SymfonyUxDsfr\Twig\Components;
@@ -38,13 +39,14 @@ class Pagination
     public function pages(): array
     {
         $pages = [];
-        for ($i = 1; $i <= max(1, $this->total); $i++) {
+        for ($i = 1; $i <= max(1, $this->total); ++$i) {
             $pages[] = [
                 'number' => $i,
                 'href' => sprintf($this->path, $i),
                 'current' => $i === $this->current,
             ];
         }
+
         return $pages;
     }
 }

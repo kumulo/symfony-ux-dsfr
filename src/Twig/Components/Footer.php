@@ -24,17 +24,18 @@ class Footer
     public ?array $partners = null;
 
     #[PreMount]
-    public function postMount(array $data): array {
+    public function postMount(array $data): array
+    {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined();
         $resolver->setDefaults(['partners' => []]);
         $resolver->setAllowedTypes('partners', ['null', 'array']);
 
-        if(isset($data['partners']['main'])) {
+        if (isset($data['partners']['main'])) {
             $data['partners']['main'] = $this->resolvePartner($data['partners']['main']);
         }
 
-        if(isset($data['partners']['subs'])) {
+        if (isset($data['partners']['subs'])) {
             foreach ($data['partners']['subs'] as $key => $partner) {
                 $data['partners']['subs'][$key] = $this->resolvePartner($partner);
             }
@@ -43,7 +44,8 @@ class Footer
         return $resolver->resolve($data) + $data;
     }
 
-    private function resolvePartner(array $data): array {
+    private function resolvePartner(array $data): array
+    {
         $partnerResolver = new OptionsResolver();
         $partnerResolver->setIgnoreUndefined();
         $partnerResolver->setDefaults([

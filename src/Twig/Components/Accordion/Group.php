@@ -14,8 +14,10 @@ class Group
 {
     #[ExposeInTemplate]
     public string $group = 'true';
+
     #[PreMount]
-    public function preMount(array $data): array {
+    public function preMount(array $data): array
+    {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined(true);
         $resolver->setDefaults([

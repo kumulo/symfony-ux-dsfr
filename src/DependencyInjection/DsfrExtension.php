@@ -10,7 +10,8 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class DsfrExtension extends Extension implements PrependExtensionInterface {
+class DsfrExtension extends Extension implements PrependExtensionInterface
+{
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
@@ -26,7 +27,6 @@ class DsfrExtension extends Extension implements PrependExtensionInterface {
         $this->enableTwigComponentConfiguration($container);
         $this->enableTranslatorConfiguration($container);
         $this->enableWebpackConfiguration($container);
-
     }
 
     private function enableTwigConfiguration(ContainerBuilder $container): void
@@ -46,10 +46,10 @@ class DsfrExtension extends Extension implements PrependExtensionInterface {
         if ($container->hasExtension('twig_component')) {
             $container->prependExtensionConfig('twig_component', [
                 'defaults' => [
-                    'SymfonyUxDsfr\\Twig\\Components\\' => [
+                    'SymfonyUxDsfr\Twig\Components\\' => [
                         'template_directory' => '@UxDsfr/components/',
                         'name_prefix' => 'UxDsfr',
-                    ]
+                    ],
                 ],
             ]);
 
@@ -62,8 +62,8 @@ class DsfrExtension extends Extension implements PrependExtensionInterface {
         if ($container->hasExtension('webpack_encore')) {
             $container->prependExtensionConfig('webpack_encore', [
                 'builds' => [
-                    'dsfr' => '%kernel.project_dir%/public/bundles/symfonyuxdsfr/'
-                ]
+                    'dsfr' => '%kernel.project_dir%/public/bundles/symfonyuxdsfr/',
+                ],
             ]);
         }
     }

@@ -9,8 +9,8 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use SymfonyUxDsfr\DependencyInjection\DsfrExtension;
 
-class SymfonyUxDsfrBundle extends Bundle {
-
+class SymfonyUxDsfrBundle extends Bundle
+{
     public function getContainerExtension(): Extension
     {
         return new DsfrExtension();

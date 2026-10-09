@@ -21,6 +21,7 @@ class Callout
         $resolver = new OptionsResolver();
         $resolver->setDefaults(['color' => 'green-emeraude']);
         $resolver->setAllowedValues('color', ['green-emeraude', 'green-menthe', 'blue-ecume', 'purple-glycine', 'pink-macaron', 'yellow-tournesol', 'orange-terre-battue', 'brown-cafe-creme', 'grey']);
+
         return $resolver->resolve($data) + $data;
     }
 }

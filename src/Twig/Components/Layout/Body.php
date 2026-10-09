@@ -12,22 +12,22 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 #[AsTwigComponent]
 class Body
 {
-	#[ExposeInTemplate]
-	public string $id = 'content';
+    #[ExposeInTemplate]
+    public string $id = 'content';
 
-	#[ExposeInTemplate]
-	public string $role = 'main';
+    #[ExposeInTemplate]
+    public string $role = 'main';
 
-	#[PreMount]
-	public function preMount(array $data): array
-	{
-		$resolver = new OptionsResolver();
-		$resolver->setIgnoreUndefined(true);
-		$resolver->setDefaults([
-			'id' => 'content',
-			'role' => 'main',
-		]);
+    #[PreMount]
+    public function preMount(array $data): array
+    {
+        $resolver = new OptionsResolver();
+        $resolver->setIgnoreUndefined(true);
+        $resolver->setDefaults([
+            'id' => 'content',
+            'role' => 'main',
+        ]);
 
-		return $resolver->resolve($data) + $data;
-	}
+        return $resolver->resolve($data) + $data;
+    }
 }

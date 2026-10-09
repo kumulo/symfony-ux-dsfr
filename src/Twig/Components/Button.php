@@ -36,6 +36,7 @@ class Button
         $resolver->setIgnoreUndefined();
         $resolver->setAllowedValues('variant', ['primary', 'secondary', 'tertiary', 'tertiary-no-outline']);
         $resolver->setAllowedValues('type', ['button', 'submit', 'reset']);
+
         return $resolver->resolve($data) + $data;
     }
 }

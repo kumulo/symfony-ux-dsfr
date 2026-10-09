@@ -12,11 +12,14 @@ class Accordion
 {
     public ?string $accordionId = null;
     public bool $expanded = false;
+
     #[PreMount]
-    public function preMount(array $data): array {
-        if(!isset($data['accordionId']) || $data['accordionId'] === null) {
-            $data['accordionId'] = 'accordion-' . rand();
+    public function preMount(array $data): array
+    {
+        if (!isset($data['accordionId']) || null === $data['accordionId']) {
+            $data['accordionId'] = 'accordion-'.rand();
         }
+
         return $data;
     }
 }

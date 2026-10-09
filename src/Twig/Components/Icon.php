@@ -13,6 +13,7 @@ class Icon
 {
     #[ExposeInTemplate]
     public ?string $name = null;
+
     #[PreMount]
     public function preMount(array $data): array
     {

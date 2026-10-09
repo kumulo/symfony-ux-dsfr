@@ -14,6 +14,6 @@ class Item
     #[ExposeInTemplate]
     public function getSubMenuId(): ?string
     {
-        return 'navigation-' . rand();
+        return 'navigation-'.rand();
     }
 }

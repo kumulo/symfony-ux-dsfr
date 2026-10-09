@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SymfonyUxDsfr\Twig\Components;
@@ -23,6 +24,7 @@ class Dropdown
         $resolver = new OptionsResolver();
         $resolver->setDefaults(['label' => 'Menu', 'items' => []]);
         $resolver->setAllowedTypes('items', 'array');
+
         return $resolver->resolve($data) + $data;
     }
 }

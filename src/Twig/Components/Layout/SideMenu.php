@@ -13,6 +13,6 @@ class SideMenu
     #[ExposeInTemplate]
     public function getMenuId(): ?string
     {
-        return 'sidemenu-' . rand();
+        return 'sidemenu-'.rand();
     }
 }

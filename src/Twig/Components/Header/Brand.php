@@ -21,7 +21,7 @@ class Brand
     #[ExposeInTemplate]
     public bool $show_search_button = false;
     #[ExposeInTemplate]
-    public string $menu_id = "header-menu";
+    public string $menu_id = 'header-menu';
     #[ExposeInTemplate]
     public bool $show_menu_button = false;
     #[ExposeInTemplate]

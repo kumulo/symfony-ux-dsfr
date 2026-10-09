@@ -33,10 +33,11 @@ class Card
     {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined();
-        $defaultType = 'fr-enlarge-link' . (isset($data['horizontal']) ? ' fr-card--download' : '');
+        $defaultType = 'fr-enlarge-link'.(isset($data['horizontal']) ? ' fr-card--download' : '');
         $resolver->setDefaults([
             'link_type' => $defaultType,
         ]);
+
         return $resolver->resolve($data) + $data;
     }
 }

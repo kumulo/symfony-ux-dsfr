@@ -21,6 +21,7 @@ class Tabs
         $resolver = new OptionsResolver();
         $resolver->setRequired(['tabs']);
         $resolver->setAllowedTypes('tabs', 'array');
+
         return $resolver->resolve($data) + $data;
     }
 }

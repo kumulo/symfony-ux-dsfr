@@ -21,6 +21,7 @@ class Tag
         $resolver = new OptionsResolver();
         $resolver->setDefaults(['variant' => 'default']);
         $resolver->setAllowedValues('variant', ['default', 'success', 'error', 'info', 'warning']);
+
         return $resolver->resolve($data) + $data;
     }
 }

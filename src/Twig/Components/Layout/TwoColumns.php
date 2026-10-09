@@ -24,7 +24,8 @@ class TwoColumns
     public string $classCol2 = '';
 
     #[PreMount]
-    public function preMount(array $data): array {
+    public function preMount(array $data): array
+    {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined(true);
         $resolver->setDefaults([
@@ -36,8 +37,9 @@ class TwoColumns
     }
 
     #[PostMount]
-    public function postMount(): void {
-        $this->classCol1 = $this->position === self::DEFAULT_POSITION ? $this->classColSmall : $this->classColLarge;
-        $this->classCol2 = $this->position === self::DEFAULT_POSITION ? $this->classColLarge : $this->classColSmall;
+    public function postMount(): void
+    {
+        $this->classCol1 = self::DEFAULT_POSITION === $this->position ? $this->classColSmall : $this->classColLarge;
+        $this->classCol2 = self::DEFAULT_POSITION === $this->position ? $this->classColLarge : $this->classColSmall;
     }
 }

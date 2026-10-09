@@ -16,6 +16,7 @@ class GouvLogo
     {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined(true);
+
         return $resolver->resolve($data) + $data;
     }
 }

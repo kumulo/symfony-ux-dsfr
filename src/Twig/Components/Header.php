@@ -15,7 +15,7 @@ class Header
     #[ExposeInTemplate]
     public ?string $service_logo = null;
     #[ExposeInTemplate]
-    public string $menu_id = "header-menu";
+    public string $menu_id = 'header-menu';
     #[ExposeInTemplate]
     public bool $show_menu_button = false;
     #[ExposeInTemplate]

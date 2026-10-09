@@ -11,8 +11,8 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 #[AsTwigComponent]
 class Link
 {
-    public string $class = "fr-link";
-    public string $link = "#";
+    public string $class = 'fr-link';
+    public string $link = '#';
     public ?string $id = null;
     public ?string $target = '_self';
     public ?string $rel = '';
@@ -35,9 +35,9 @@ class Link
 
         $return = $resolver->resolve($data) + $data;
 
-        if($return['target'] === '_blank') {
-            $return['rel'] = "noopener external";
-            $return['title'] = isset($return['title']) ? $return['title'] . ' - nouvelle fenêtre' : 'nouvelle fenêtre';
+        if ('_blank' === $return['target']) {
+            $return['rel'] = 'noopener external';
+            $return['title'] = isset($return['title']) ? $return['title'].' - nouvelle fenêtre' : 'nouvelle fenêtre';
         }
 
         return $return;

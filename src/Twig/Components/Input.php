@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SymfonyUxDsfr\Twig\Components;
@@ -45,8 +46,8 @@ class Input
         $resolver->setAllowedValues('type', ['text', 'email', 'password', 'search', 'tel', 'url', 'number']);
 
         // ensure id default
-        if (!isset($data['id']) || $data['id'] === null) {
-            $data['id'] = $data['name'] !== '' ? $data['name'] : 'input-' . rand();
+        if (!isset($data['id']) || null === $data['id']) {
+            $data['id'] = '' !== $data['name'] ? $data['name'] : 'input-'.rand();
         }
 
         return $resolver->resolve($data) + $data;

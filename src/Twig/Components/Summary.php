@@ -20,6 +20,7 @@ class Summary
     {
         $resolver = new OptionsResolver();
         $resolver->setRequired(['title']);
+
         return $resolver->resolve($data) + $data;
     }
 }

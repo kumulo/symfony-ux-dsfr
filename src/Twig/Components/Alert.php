@@ -19,7 +19,8 @@ class Alert
     public bool $closable = false;
 
     #[PreMount]
-    public function preMount(array $data): array {
+    public function preMount(array $data): array
+    {
         $resolver = new OptionsResolver();
         $resolver->setDefaults([
             'type' => 'info',
