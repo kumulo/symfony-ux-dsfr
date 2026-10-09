@@ -1,0 +1,132 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Card</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Carte simple</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Card href="#" link_type="fr-enlarge-link">
+                    {% block title1 %}Ma première carte{% endblock %}
+                    {% block content1 %}
+                        <p class="fr-card__desc">Ceci est une description de la carte avec un lien cliquable.</p>
+                    {% endblock %}
+                </twig:UxDsfr:Card>
+            </div>
+        </div>
+
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Carte avec image</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Card
+                    href="#"
+                    card_header="/bundles/symfonyuxdsfr/images/placeholder.16x9.png"
+                    card_header_alt="Image descriptive"
+                    link_type="fr-enlarge-link">
+                    {% block title2 %}Carte avec illustration{% endblock %}
+                    {% block content2 %}
+                        <p class="fr-card__desc">Cette carte possède une image d'illustration en en-tête.</p>
+                    {% endblock %}
+                </twig:UxDsfr:Card>
+            </div>
+        </div>
+
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Carte type téléchargement (horizontal)</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Card
+                    href="#"
+                    horizontal="true"
+                    file_type="PDF"
+                    file_size="2.5 MB">
+                    {% block title3 %}Document à télécharger{% endblock %}
+                    {% block content3 %}
+                        <p class="fr-card__desc">Téléchargez ce document important.</p>
+                    {% endblock %}
+                </twig:UxDsfr:Card>
+            </div>
+        </div>
+
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Cartes en grille</h4>
+            <div class="fr-mt-2v fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                    <twig:UxDsfr:Card href="#" link_type="fr-enlarge-link">
+                        {% block title4 %}Carte 1{% endblock %}
+                        {% block content4 %}
+                            <p class="fr-card__desc">Première colonne de contenu.</p>
+                        {% endblock %}
+                    </twig:UxDsfr:Card>
+                </div>
+                <div class="fr-col-12 fr-col-md-4">
+                    <twig:UxDsfr:Card href="#" link_type="fr-enlarge-link">
+                        {% block title5 %}Carte 2{% endblock %}
+                        {% block content5 %}
+                            <p class="fr-card__desc">Deuxième colonne de contenu.</p>
+                        {% endblock %}
+                    </twig:UxDsfr:Card>
+                </div>
+                <div class="fr-col-12 fr-col-md-4">
+                    <twig:UxDsfr:Card href="#" link_type="fr-enlarge-link">
+                        {% block title6 %}Carte 3{% endblock %}
+                        {% block content6 %}
+                            <p class="fr-card__desc">Troisième colonne de contenu.</p>
+                        {% endblock %}
+                    </twig:UxDsfr:Card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples de code</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Carte simple</h4>
+            {% set code1 = "&lt;twig:UxDsfr:Card href=\"#\" link_type=\"fr-enlarge-link\"&gt;
+    {% block title %}Ma première carte{% endblock %}
+    {% block content %}
+        &lt;p class=\"fr-card__desc\"&gt;Description de la carte.&lt;/p&gt;
+    {% endblock %}
+&lt;/twig:UxDsfr:Card&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Carte avec image</h4>
+            {% set code2 = "&lt;twig:UxDsfr:Card
+    href=\"#/details\"
+    card_header=\"/path/to/image.jpg\"
+    card_header_alt=\"Description de l'image\"
+    link_type=\"fr-enlarge-link\"&gt;
+    {% block title %}Titre de la carte{% endblock %}
+    {% block content %}
+        &lt;p class=\"fr-card__desc\"&gt;Description du contenu.&lt;/p&gt;
+    {% endblock %}
+&lt;/twig:UxDsfr:Card&gt;" %}
+            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+
+            <h4 class="fr-h5">Carte de téléchargement (horizontal)</h4>
+            {% set code3 = "&lt;twig:UxDsfr:Card
+    href=\"/file.pdf\"
+    horizontal=\"true\"
+    file_type=\"PDF\"
+    file_size=\"2.5 MB\"&gt;
+    {% block title %}Document PDF{% endblock %}
+    {% block content %}
+        &lt;p class=\"fr-card__desc\"&gt;Télécharger le document.&lt;/p&gt;
+    {% endblock %}
+&lt;/twig:UxDsfr:Card&gt;" %}
+            <pre><code class="language-html">{{ code3|raw }}</code></pre>
+
+            <h4 class="fr-h5">Propriétés disponibles</h4>
+            {% set code4 = "href: URL du lien (optionnel)
+card_header: Chemin de l'image (optionnel)
+card_header_alt: Texte alternatif de l'image
+link_type: Classe CSS du lien (défaut: fr-enlarge-link)
+horizontal: Affiche la carte en mode horizontal/téléchargement
+file_type: Type de fichier (PDF, DOC, etc.)
+file_size: Taille du fichier" %}
+            <pre><code class="language-text">{{ code4|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}
+

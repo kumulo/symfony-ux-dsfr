@@ -1,0 +1,41 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Icon</h2>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <p>Le composant `Icon` affiche une icône DSFR via sa classe CSS <code>fr-icon-{{'name'}}</code>. L'attribut requis est <code>name</code>.</p>
+
+            <h4 class="fr-h5">Exemples rapides</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Icon name="lock-2-line" />
+                <twig:UxDsfr:Icon name="mark-pen-fill" />
+                <twig:UxDsfr:Icon name="moon-line" />
+                <twig:UxDsfr:Icon name="filter-2-fill" />
+                <twig:UxDsfr:Icon name="add-line" />
+            </div>
+
+            <h4 class="fr-h5 fr-mt-4v">Avec du texte</h4>
+            <p class="fr-mt-2v"><twig:UxDsfr:Icon name="text" /> Exemple d'élément avec une icône en amont.</p>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples de code</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Tag Twig</h4>
+            {% set code1 = "&lt;twig:UxDsfr:Icon name='lock-2-line' /&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Usage dans un lien ou bouton</h4>
+            {% set code2 = "&lt;a href=\"#\" class=\"fr-link\"&gt;&lt;twig:UxDsfr:Icon name='add-line' /&gt; Ajouter&lt;/a&gt;" %}
+            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+
+            <h4 class="fr-h5">Remarques</h4>
+            <p>La liste complète des noms d'icônes se trouve dans <code>src/Resources/assets/dsfr-icons.json</code> (propriété <code>samples</code> et le champ <code>total</code> indique le nombre total d'icônes disponibles dans la palette DSFR).</p>
+        </div>
+    </div>
+{% endblock %}
+

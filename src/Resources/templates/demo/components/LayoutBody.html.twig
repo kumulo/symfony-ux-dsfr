@@ -1,0 +1,42 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Layout:Body</h2>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <p>Le composant <code>Layout:Body</code> est le conteneur principal de la zone de contenu d'une page. Il expose les propriétés <code>id</code> et <code>role</code> (défauts : <code>content</code> / <code>main</code>) et accepte les attributs HTML usuels (classes, aria, ...).</p>
+
+        <div class="fr-mt-2v">
+            <h4 class="fr-h5">Exemple simple</h4>
+            <twig:UxDsfr:Layout:Body class="fr-pb-6v" id="demo-body">
+                <h3 class="fr-h4">Contenu de démonstration</h3>
+                <p>Ceci est un exemple de contenu placé dans <code>Layout:Body</code>.</p>
+            </twig:UxDsfr:Layout:Body>
+        </div>
+
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Remplacement du rôle et de l'identifiant</h4>
+            <p>Vous pouvez surcharger l'ID et le rôle via les arguments du composant :</p>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Layout:Body id="main-area" role="region" class="fr-pb-6v">
+                    <p>Role défini sur <code>region</code>, id = <code>main-area</code>.</p>
+                </twig:UxDsfr:Layout:Body>
+            </div>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Code snippets</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Usage de base</h4>
+            {% set code1 = "&lt;twig:UxDsfr:Layout:Body class=\"fr-pb-6v\"&gt;\n    &lt;h3&gt;Contenu&lt;/h3&gt;\n&lt;/twig:UxDsfr:Layout:Body&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Surcharge de l'id et du role</h4>
+            {% set code2 = "&lt;twig:UxDsfr:Layout:Body id=\"main-area\" role=\"region\"&gt;...&lt;/twig:UxDsfr:Layout:Body&gt;" %}
+            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}
+

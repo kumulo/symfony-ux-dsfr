@@ -1,6 +1,6 @@
 <main {{ attributes.defaults({
-    id: 'content',
-    role: 'main',
+    id: this.id,
+    role: this.role,
 }) }}>
     {% block body_content %}
         Default body content

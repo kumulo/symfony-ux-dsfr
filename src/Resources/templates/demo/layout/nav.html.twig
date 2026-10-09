@@ -2,17 +2,22 @@
     <twig:UxDsfr:Layout:SideMenuList>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
+                <a href="{{ path('dsfr_components_Accordion') }}"{% if app.current_route === 'dsfr_components_Accordion' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Accordion</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
                 <a href="{{ path('dsfr_components_Alert') }}"{% if app.current_route === 'dsfr_components_Alert' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Alert</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
-                <a href="{{ path('dsfr_components_Breadcrumb') }}"{% if app.current_route === 'dsfr_components_Breadcrumb' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Breadcrumb</a>
+                <a href="{{ path('dsfr_components_Badge') }}"{% if app.current_route === 'dsfr_components_Badge' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Badge</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
-                <a href="{{ path('dsfr_components_GouvLogo') }}"{% if app.current_route === 'dsfr_components_GouvLogo' %} aria-current="page"{% endif %} class="fr-sidemenu__link">GouvLogo</a>
+                <a href="{{ path('dsfr_components_Breadcrumb') }}"{% if app.current_route === 'dsfr_components_Breadcrumb' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Breadcrumb</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
@@ -27,12 +32,32 @@
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
+                <a href="{{ path('dsfr_components_Card') }}"{% if app.current_route === 'dsfr_components_Card' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Card</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Footer') }}"{% if app.current_route === 'dsfr_components_Footer' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Footer</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_GouvLogo') }}"{% if app.current_route === 'dsfr_components_GouvLogo' %} aria-current="page"{% endif %} class="fr-sidemenu__link">GouvLogo</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
                 <a href="{{ path('dsfr_components_Header') }}"{% if app.current_route === 'dsfr_components_Header' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Header</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
                 <a href="{{ path('dsfr_components_Highlight') }}"{% if app.current_route === 'dsfr_components_Highlight' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Highlight</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
+                <a href="{{ path('dsfr_components_Icon') }}"{% if app.current_route === 'dsfr_components_Icon' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Icon</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
@@ -62,9 +87,34 @@
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
+                <a href="{{ path('dsfr_components_ThemeSwitcher') }}"{% if app.current_route === 'dsfr_components_ThemeSwitcher' %} aria-current="page"{% endif %} class="fr-sidemenu__link">ThemeSwitcher</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
                 <a href="{{ path('dsfr_components_Tile') }}"{% if app.current_route === 'dsfr_components_Tile' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Tile</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>
-
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block submenu -%}
+                <twig:UxDsfr:Layout:SideMenu menu_title="Layout">
+                    <twig:UxDsfr:Layout:SideMenuItem>
+                        {%- block link -%}
+                            <a href="{{ path('dsfr_components_LayoutBody') }}"{% if app.current_route === 'dsfr_components_LayoutBody' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Layout:Body</a>
+                        {%- endblock -%}
+                    </twig:UxDsfr:Layout:SideMenuItem>
+                    <twig:UxDsfr:Layout:SideMenuItem>
+                        {%- block link -%}
+                            <a href="#" aria-current="page" class="fr-sidemenu__link">Layout:Header</a>
+                        {%- endblock -%}
+                    </twig:UxDsfr:Layout:SideMenuItem>
+                    <twig:UxDsfr:Layout:SideMenuItem>
+                        {%- block link -%}
+                            <a href="#" aria-current="page" class="fr-sidemenu__link">Layout:Footer</a>
+                        {%- endblock -%}
+                    </twig:UxDsfr:Layout:SideMenuItem>
+                </twig:UxDsfr:Layout:SideMenu>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
     </twig:UxDsfr:Layout:SideMenuList>
 </twig:UxDsfr:Layout:SideMenu>

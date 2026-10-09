@@ -1,4 +1,4 @@
-{% extends "@UxDsfr/bootstrap/components/page.html.twig" %}
+{% extends "@UxDsfr/demo/components/page.html.twig" %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('dsfr-hljs', null, 'dsfr') }}
@@ -10,20 +10,23 @@
 {% if block('text_content') is defined %}
     {% set col2 = block('text_content') %}
 {% endif %}
+{% set items = [
+    { 'label': 'Accueil', 'href': '/' },
+    { 'label': 'Documentation', 'href': '#' },
+    { 'label': 'Composants', 'href': path('dsfr_components') }
+] %}
 {% set content %}
     {% component 'UxDsfr:Layout:TwoColumns' %}
         {% block column1 %}
-            {% include('@UxDsfr/bootstrap/components/nav.html.twig') %}
+            {% include('@UxDsfr/demo/layout/nav.html.twig') %}
         {% endblock %}
         {% block column2 %}
+            <twig:UxDsfr:Breadcrumb :items="items" />
             {{ col2|raw }}
         {% endblock %}
     {% endcomponent %}
 {% endset %}
 {% block body_content %}
-    <twig:UxDsfr:Breadcrumb>
-        dza
-    </twig:UxDsfr:Breadcrumb>
     <twig:UxDsfr:Layout:Container class="fr-mt-5v">
         {{ content }}
     </twig:UxDsfr:Layout:Container>

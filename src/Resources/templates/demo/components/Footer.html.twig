@@ -1,0 +1,208 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Footer</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Footer simple</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Footer service_link="#">
+                </twig:UxDsfr:Footer>
+            </div>
+        </div>
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Footer avec contenu</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Footer service_link="#">
+                    {% block footer_content %}
+                        <p class="fr-footer__content-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                        <ul class="fr-footer__content-list">
+                            <li class="fr-footer__content-item">
+                                <a title="info.gouv.fr - nouvelle fenêtre" id="footer__content-link-0" href="https://info.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">info.gouv.fr</a>
+                            </li>
+                            <li class="fr-footer__content-item">
+                                <a title="service-public.gouv.fr - nouvelle fenêtre" id="footer__content-link-1" href="https://service-public.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">service-public.gouv.fr</a>
+                            </li>
+                            <li class="fr-footer__content-item">
+                                <a title="legifrance.gouv.fr - nouvelle fenêtre" id="footer__content-link-2" href="https://legifrance.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">legifrance.gouv.fr</a>
+                            </li>
+                            <li class="fr-footer__content-item">
+                                <a title="data.gouv.fr - nouvelle fenêtre" id="footer__content-link-3" href="https://data.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">data.gouv.fr</a>
+                            </li>
+                        </ul>
+                    {% endblock %}
+                    {% block footer_menu %}
+                        <ul class="fr-footer__bottom-list">
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Mentions légales</a></li>
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Accessibilité</a></li>
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Politique de confidentialité</a></li>
+                        </ul>
+                    {% endblock %}
+                </twig:UxDsfr:Footer>
+            </div>
+        </div>
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Footer avec les paramètres d'affichages dans le menu</h4>
+            <div class="fr-mt-2v">
+                {% set switcher %}
+                    <twig:UxDsfr:ThemeSwitcher></twig:UxDsfr:ThemeSwitcher>
+                {% endset %}
+                <twig:UxDsfr:Footer service_link="#">
+                    {% block footer_menu %}
+                        <ul class="fr-footer__bottom-list">
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Mentions légales</a></li>
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Accessibilité</a></li>
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Politique de confidentialité</a></li>
+                            <li class="fr-footer__bottom-item">
+                                {{ switcher }}
+                            </li>
+                        </ul>
+                    {% endblock %}
+                </twig:UxDsfr:Footer>
+            </div>
+        </div>
+
+
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Footer avec service personalisé et image</h4>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Footer
+                    service_link="#"
+                    service_logo="/bundles/symfonyuxdsfr/images/placeholder.9x16.png"
+                    logo_title="Mon Service"
+                    service_title="Service Public">
+                </twig:UxDsfr:Footer>
+            </div>
+        </div>
+
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Footer avec partenaires</h4>
+            <div class="fr-mt-2v">
+                {% set partners = {
+                    'title': 'Partenaires',
+                    'main': {
+                        'link': '#',
+                        'asset': '/bundles/symfonyuxdsfr/images/placeholder.16x9.png',
+                        'title': 'Partenaire principal'
+                    },
+                    'subs': [
+                        {
+                            'link': '#',
+                            'asset': '/bundles/symfonyuxdsfr/images/placeholder.16x9.png',
+                            'title': 'Partenaire 1'
+                        },
+                        {
+                            'link': '#',
+                            'asset': '/bundles/symfonyuxdsfr/images/placeholder.16x9.png',
+                            'title': 'Partenaire 2'
+                        }
+                    ]
+                } %}
+                <twig:UxDsfr:Footer
+                    service_link="#"
+                    :partners="partners">
+                    {% block footer_content %}
+                        <p class="fr-footer__content-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                        <ul class="fr-footer__content-list">
+                            <li class="fr-footer__content-item">
+                                <a title="info.gouv.fr - nouvelle fenêtre" id="footer__content-link-0" href="https://info.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">info.gouv.fr</a>
+                            </li>
+                            <li class="fr-footer__content-item">
+                                <a title="service-public.gouv.fr - nouvelle fenêtre" id="footer__content-link-1" href="https://service-public.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">service-public.gouv.fr</a>
+                            </li>
+                            <li class="fr-footer__content-item">
+                                <a title="legifrance.gouv.fr - nouvelle fenêtre" id="footer__content-link-2" href="https://legifrance.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">legifrance.gouv.fr</a>
+                            </li>
+                            <li class="fr-footer__content-item">
+                                <a title="data.gouv.fr - nouvelle fenêtre" id="footer__content-link-3" href="https://data.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">data.gouv.fr</a>
+                            </li>
+                        </ul>
+                    {% endblock %}
+                    {% block footer_menu %}
+                        <ul class="fr-footer__bottom-list">
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Mentions légales</a></li>
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Accessibilité</a></li>
+                            <li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="#">Politique de confidentialité</a></li>
+                        </ul>
+                    {% endblock %}
+                </twig:UxDsfr:Footer>
+            </div>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples de code</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Footer simple</h4>
+            {% set code1 = "&lt;twig:UxDsfr:Footer service_link=\"#\"&gt;
+    {% block footer_content %}
+        &lt;nav class=\"fr-footer__content-nav\"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=\"#\"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=\"#\"&gt;À propos&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    {% endblock %}
+    {% block footer_menu %}
+        &lt;ul class=\"fr-footer__bottom-list\"&gt;
+            &lt;li&gt;&lt;a href=\"#\"&gt;Mentions légales&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    {% endblock %}
+&lt;/twig:UxDsfr:Footer&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Footer avec logo de service</h4>
+            {% set code2 = "&lt;twig:UxDsfr:Footer
+    service_link=\"#\"
+    service_logo=\"/path/to/logo.svg\"
+    logo_title=\"Mon Service\"
+    service_title=\"Service Public\"&gt;
+    {% block footer_content %}
+        &lt;nav class=\"fr-footer__content-nav\"&gt;
+            ...
+        &lt;/nav&gt;
+    {% endblock %}
+    {% block footer_menu %}
+        ...
+    {% endblock %}
+&lt;/twig:UxDsfr:Footer&gt;" %}
+            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+
+            <h4 class="fr-h5">Footer avec partenaires</h4>
+            {% set code3 = "{% set partners = {
+    'title': 'Partenaires',
+    'main': {
+        'link': '#',
+        'asset': '/path/to/partner-logo.svg',
+        'title': 'Partenaire principal'
+    },
+    'subs': [
+        {
+            'link': '#',
+            'asset': '/path/to/partner-2.svg',
+            'title': 'Partenaire 2'
+        }
+    ]
+} %}
+
+&lt;twig:UxDsfr:Footer :partners=\"partners\"&gt;
+    ...
+&lt;/twig:UxDsfr:Footer&gt;" %}
+            <pre><code class="language-html">{{ code3|raw }}</code></pre>
+
+            <h4 class="fr-h5">Propriétés disponibles</h4>
+            {% set code4 = "service_link: Lien du service (optionnel)
+service_logo: Chemin du logo du service (optionnel)
+logo_title: Titre personnalisé du logo (optionnel)
+service_title: Titre du service (optionnel)
+partners: Tableau de partenaires avec structure main/subs (optionnel)
+
+Blocs :
+- footer_content: Contenu principal du footer
+- footer_menu: Menu du bas du footer" %}
+            <pre><code class="language-text">{{ code4|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}
+

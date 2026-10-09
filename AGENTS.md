@@ -37,7 +37,7 @@ This is a Symfony UX bundle that provides Twig components implementing the Frenc
 ## Documentation
 - **Twig Components**: Documented in `doc/components/` with usage examples and code
 - **Components Demo Pages**: Rendered by controller `src/Controller/ComponentsDemoController.php` for local preview of components
-- **Components Demo Templates**: Each component has a corresponding Twig template in `src/Resources/templates/bootstrap/components/` for rendering the demo page. It shows the component in action and provides code snippets for usage with variations for all the component's variables.
+- **Components Demo Templates**: Each component has a corresponding Twig template in `src/Resources/templates/demo/components/` for rendering the demo page. It shows the component in action and provides code snippets for usage with variations for all the component's variables.
 
 ## Key Files
 - `src/DependencyInjection/DsfrExtension.php`: Configures Twig paths, component defaults, webpack builds

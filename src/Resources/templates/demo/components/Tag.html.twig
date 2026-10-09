@@ -1,0 +1,51 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Tag</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <p>Les tags permettent d'attirer l'attention sur un statut, une étiquette ou une catégorie.</p>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Tag>Par défaut</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag variant="success">Succès</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag variant="error">Erreur</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag variant="info">Info</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag variant="warning">Attention</twig:UxDsfr:Tag>
+            </div>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples d'utilisation</h3>
+        <div class="fr-mt-4v">
+            <h4 class="fr-h5">Intégration dans une liste</h4>
+            <ul>
+                <li>Article A <twig:UxDsfr:Tag variant="info">Nouveau</twig:UxDsfr:Tag></li>
+                <li>Article B <twig:UxDsfr:Tag variant="warning">Bêta</twig:UxDsfr:Tag></li>
+                <li>Article C <twig:UxDsfr:Tag variant="success">Publié</twig:UxDsfr:Tag></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Code &nbsp;snippets</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Tag simple</h4>
+            {% set code1 = "&lt;twig:UxDsfr:Tag&gt;Par défaut&lt;/twig:UxDsfr:Tag&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Avec variante</h4>
+            {% set code2 = "&lt;twig:UxDsfr:Tag variant=\"success\"&gt;Succès&lt;/twig:UxDsfr:Tag&gt;" %}
+            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+
+            <h4 class="fr-h5">Dans un lien</h4>
+            {% set code3 = "&lt;a href=\"#\" class=\"fr-link\"&gt;&lt;twig:UxDsfr:Tag variant=\"info\"&gt;Nouveau&lt;/twig:UxDsfr:Tag&gt; Détails&lt;/a&gt;" %}
+            <pre><code class="language-html">{{ code3|raw }}</code></pre>
+
+            <h4 class="fr-h5">Propriétés disponibles</h4>
+            {% set code4 = "variant: 'default' | 'success' | 'error' | 'info' | 'warning'" %}
+            <pre><code class="language-text">{{ code4|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}

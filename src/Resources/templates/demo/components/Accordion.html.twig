@@ -1,0 +1,61 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Accordion</h2>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Accordion:Group>
+                <twig:UxDsfr:Accordion>
+                    {% block title %}Section 1{% endblock %}
+                    {% block content %}
+                        Contenu de la première section de l'accordéon.
+                    {% endblock %}
+                </twig:UxDsfr:Accordion>
+                <twig:UxDsfr:Accordion>
+                    {% block title %}Section 2{% endblock %}
+                    {% block content %}
+                        Contenu de la deuxième section de l'accordéon.
+                    {% endblock %}
+                </twig:UxDsfr:Accordion>
+                <twig:UxDsfr:Accordion expanded="true">
+                    {% block title %}Section 3 (expanded){% endblock %}
+                    {% block content %}
+                        Cette section est déjà ouverte par défaut.
+                    {% endblock %}
+                </twig:UxDsfr:Accordion>
+            </twig:UxDsfr:Accordion:Group>
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples de code</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Structure de base</h4>
+            {% set code1 = "&lt;twig:UxDsfr:Accordion:Group&gt;
+    &lt;twig:UxDsfr:Accordion&gt;
+        {% block title %}Section 1{% endblock %}
+        {% block content %}
+            Contenu de la section
+        {% endblock %}
+    &lt;/twig:UxDsfr:Accordion&gt;
+    &lt;twig:UxDsfr:Accordion&gt;
+        {% block title %}Section 2{% endblock %}
+        {% block content %}
+            Contenu de la section
+        {% endblock %}
+    &lt;/twig:UxDsfr:Accordion&gt;
+&lt;/twig:UxDsfr:Accordion:Group&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Avec une section étendue par défaut</h4>
+            {% set code2 = "&lt;twig:UxDsfr:Accordion expanded=\"true\"&gt;
+    {% block title %}Section ouverte{% endblock %}
+    {% block content %}
+        Cette section est ouverte par défaut
+    {% endblock %}
+&lt;/twig:UxDsfr:Accordion&gt;" %}
+            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+        </div>
+    </div>
+{% endblock %}
+

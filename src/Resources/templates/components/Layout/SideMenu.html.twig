@@ -3,9 +3,10 @@
     'role': 'navigation',
     'aria-labelledb': 'sidemenu-title'
 }) }}>
+    {% set menuId = this.getMenuId() %}
     <div class="fr-sidemenu__inner">
-        <button aria-expanded="false" aria-controls="sidemenu" type="button" class="fr-sidemenu__btn">Dans cette rubrique</button>
-        <div class="fr-collapse" id="sidemenu">
+        <button aria-expanded="false" aria-controls="{{ menuId }}" type="button" class="fr-sidemenu__btn">Dans cette rubrique</button>
+        <div class="fr-collapse" id="{{ menuId }}">
             {% if menu_title is defined %}
             <p class="fr-sidemenu__title" id="sidemenu-title">{{ menu_title }}</p>
             {% endif %}

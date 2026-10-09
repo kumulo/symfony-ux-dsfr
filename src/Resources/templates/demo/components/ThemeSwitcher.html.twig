@@ -1,0 +1,36 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h2 class="fr-h3">Theme Switcher</h2>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Rendu</h3>
+        <div class="fr-mt-4v">
+            <p>Le composant propose un sélecteur de thème (clair / sombre / système).</p>
+
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:ThemeSwitcher />
+            </div>
+
+            <p class="fr-mt-2v">Ouvrez le sélecteur et choisissez un thème pour voir l'UI correspondante (le JS du bundle gère la persistance si activé).</p>
+        </div>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h3 class="fr-h4">Exemples de code</h3>
+        <div class="code-snippet">
+            <h4 class="fr-h5">Usage simple</h4>
+            {% set code1 = "&lt;twig:UxDsfr:ThemeSwitcher /&gt;" %}
+            <pre><code class="language-html">{{ code1|raw }}</code></pre>
+
+            <h4 class="fr-h5">Points d'intégration</h4>
+            <p>Le composant utilise des assets SVG situés dans <code>/bundles/symfonyuxdsfr/artwork/pictograms/</code> et les traductions dans le domaine <code>dsfr</code>.</p>
+            <pre><code class="language-text">Assets : /bundles/symfonyuxdsfr/artwork/pictograms/
+Traductions : src/Resources/translations/dsfr.*.yaml</code></pre>
+
+            <h4 class="fr-h5">Remarque</h4>
+            <p>Le composant attend que le JS DSFR soit chargé (entrypoint <code>dsfr</code>). Si vous utilisez les pages de démonstration du bundle via l'app hôte, les assets sont inclus automatiquement.</p>
+        </div>
+    </div>
+{% endblock %}
+
