@@ -1,3 +1,4 @@
-<div class="fr-callout fr-callout--{{ color }}">
+{% set default_class %}fr-callout{% if color %} fr-callout--{{ color }}{% endif %}{% endset %}
+<div {{ attributes.defaults({ 'class': default_class }) }}>
     {% block content %}{% endblock %}
 </div>

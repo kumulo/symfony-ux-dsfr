@@ -1,81 +1,75 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Callout</h2>
+    <h1 class="fr-h1">Callout</h1>
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Rendu</h3>
-        <div class="fr-mt-4v">
-            <h4 class="fr-h5">Couleurs disponibles</h4>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="green-emeraude">
-                    <strong>Vert Émeraude</strong> - Appelé à l'action positif ou informatif.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="green-menthe">
-                    <strong>Vert Menthe</strong> - Appelé à l'action positif ou informatif.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="blue-ecume">
-                    <strong>Bleu Écume</strong> - Information importante ou détails supplémentaires.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="purple-glycine">
-                    <strong>Violet Glycine</strong> - Callout avec une teinte pourpre.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="pink-macaron">
-                    <strong>Rose Macaron</strong> - Callout avec une teinte rose.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="yellow-tournesol">
-                    <strong>Jaune Tournesol</strong> - Avvertissement ou information importante.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="orange-terre-battue">
-                    <strong>Orange Terre Battue</strong> - Mise en garde ou attention requise.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="brown-cafe-creme">
-                    <strong>Marron Café Crème</strong> - Callout avec une teinte marron.
-                </twig:UxDsfr:Callout>
-            </div>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Callout color="grey">
-                    <strong>Gris</strong> - Callout neutre ou désactivé.
-                </twig:UxDsfr:Callout>
-            </div>
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Callout</code> met en avant une information importante ou un message d’accompagnement visuellement distinct.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+    <h2 class="fr-h3">Rendu</h2>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout>
+            Ceci est un callout par défaut.
+        </twig:UxDsfr:Callout>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Callout&gt;
+    Ceci est un callout par défaut.
+&lt;/twig:UxDsfr:Callout&gt;" %}
+            <twig:UxDsfr:Highlight><pre><code class="language-html">{{ code|raw }}</code></pre></twig:UxDsfr:Highlight>
+        </div>
+    </div>
+    <h2 class="fr-h3">Couleurs disponibles</h2>
+    <div class="fr-mt-4v">
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="green-emeraude">
+                <strong>Vert Émeraude</strong> - Appelé à l'action positif ou informatif.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="green-menthe">
+                <strong>Vert Menthe</strong> - Appelé à l'action positif ou informatif.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="purple-glycine">
+                <strong>Violet Glycine</strong> - Callout avec une teinte pourpre.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="pink-macaron">
+                <strong>Rose Macaron</strong> - Callout avec une teinte rose.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="yellow-tournesol">
+                <strong>Jaune Tournesol</strong> - Avvertissement ou information importante.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="orange-terre-battue">
+                <strong>Orange Terre Battue</strong> - Mise en garde ou attention requise.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="brown-cafe-creme">
+                <strong>Marron Café Crème</strong> - Callout avec une teinte marron.
+            </twig:UxDsfr:Callout>
+        </div>
+        <div class="fr-mt-2v">
+            <twig:UxDsfr:Callout color="grey">
+                <strong>Gris</strong> - Callout neutre ou désactivé.
+            </twig:UxDsfr:Callout>
         </div>
     </div>
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Exemples de code</h3>
+        <p><strong>Code snippet</strong></p>
         <div class="code-snippet">
-            <h4 class="fr-h5">Utilisation simple (couleur par défaut)</h4>
-            {% set code1 = "&lt;twig:UxDsfr:Callout&gt;
-    Ceci est un callout avec la couleur par défaut (vert émeraude).
-&lt;/twig:UxDsfr:Callout&gt;" %}
-            <pre><code class="language-html">{{ code1|raw }}</code></pre>
-
-            <h4 class="fr-h5">Avec couleur spécifique</h4>
-            {% set code2 = "&lt;twig:UxDsfr:Callout color=\"blue-ecume\"&gt;
-    Ceci est une callout d'information avec la couleur bleu écume.
-&lt;/twig:UxDsfr:Callout&gt;" %}
-            <pre><code class="language-html">{{ code2|raw }}</code></pre>
-
-            <h4 class="fr-h5">Avec contenu structuré</h4>
-            {% set code3 = "&lt;twig:UxDsfr:Callout color=\"yellow-tournesol\"&gt;
-    &lt;strong&gt;Attention&lt;/strong&gt; - Veuillez vérifier les informations avant de continuer.
-&lt;/twig:UxDsfr:Callout&gt;" %}
-            <pre><code class="language-html">{{ code3|raw }}</code></pre>
-
-            <h4 class="fr-h5">Toutes les couleurs disponibles</h4>
-            {% set code4 = "&lt;twig:UxDsfr:Callout color=\"green-emeraude\" /&gt;
+            {% set code2 = "&lt;twig:UxDsfr:Callout color=\"green-emeraude\" /&gt;
 &lt;twig:UxDsfr:Callout color=\"green-menthe\" /&gt;
 &lt;twig:UxDsfr:Callout color=\"blue-ecume\" /&gt;
 &lt;twig:UxDsfr:Callout color=\"purple-glycine\" /&gt;
@@ -84,7 +78,7 @@
 &lt;twig:UxDsfr:Callout color=\"orange-terre-battue\" /&gt;
 &lt;twig:UxDsfr:Callout color=\"brown-cafe-creme\" /&gt;
 &lt;twig:UxDsfr:Callout color=\"grey\" /&gt;" %}
-            <pre><code class="language-html">{{ code4|raw }}</code></pre>
+            <twig:UxDsfr:Highlight><pre><code class="language-html">{{ code2|raw }}</code></pre></twig:UxDsfr:Highlight>
         </div>
     </div>
 {% endblock %}

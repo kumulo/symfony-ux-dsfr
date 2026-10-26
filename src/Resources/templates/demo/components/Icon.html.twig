@@ -1,13 +1,21 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Icon</h2>
+    <h1 class="fr-h1">Icon</h1>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Icon</code> permet d’intégrer des icônes DSFR ou système dans les interfaces sans sortir du style du design system.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+<div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+        <p>Le composant `Icon` affiche une icône DSFR via sa classe CSS <code>fr-icon-{{'name'}}</code>. L'attribut requis est <code>name</code>.</p>
+    </twig:UxDsfr:Callout>
 
     <div class="fr-mt-4v">
         <h3 class="fr-h4">Rendu</h3>
         <div class="fr-mt-4v">
-            <p>Le composant `Icon` affiche une icône DSFR via sa classe CSS <code>fr-icon-{{'name'}}</code>. L'attribut requis est <code>name</code>.</p>
-
             <h4 class="fr-h5">Exemples rapides</h4>
             <div class="fr-mt-2v">
                 <twig:UxDsfr:Icon name="lock-2-line" />

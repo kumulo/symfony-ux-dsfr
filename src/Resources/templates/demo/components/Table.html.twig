@@ -1,54 +1,70 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Table</h2>
+    <h1 class="fr-h1">Table</h1>
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Rendu</h3>
-        <div class="fr-mt-4v">
-            <twig:UxDsfr:Table>
-                {% block caption %}Tableau d'exemple{% endblock %}
-                <thead>
-                    <tr>
-                        <th>Colonne 1</th>
-                        <th>Colonne 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Donnée 1</td>
-                        <td>Donnée 2</td>
-                    </tr>
-                    <tr>
-                        <td>Donnée 3</td>
-                        <td>Donnée 4</td>
-                    </tr>
-                </tbody>
-            </twig:UxDsfr:Table>
-        </div>
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Table</code> présente des données tabulaires avec une structure sémantique DSFR et un libellé explicite.</p>
+        </twig:UxDsfr:Callout>
     </div>
+
+<div class="fr-mt-4v">
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Code snippel</h3>
-        <div class="code-snippet">
-            {% set code = "&lt;twig:UxDsfr:Table&gt;
-    {% block caption %}Tableau d'exemple{% endblock %}
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;Colonne 1&lt;/th&gt;
-            &lt;th&gt;Colonne 2&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Donnée 1&lt;/td&gt;
-            &lt;td&gt;Donnée 2&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Donnée 3&lt;/td&gt;
-            &lt;td&gt;Donnée 4&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+       <h3 class="fr-h4">Rendu</h3>
+       <div class="fr-mt-4v">
+           <twig:UxDsfr:Table caption="Historique des demandes" bordered="true" scrollable="true">
+               {% block thead %}
+                   <tr>
+                       <th scope="col">Dossier</th>
+                       <th scope="col">Statut</th>
+                       <th scope="col">Dernière mise à jour</th>
+                   </tr>
+               {% endblock %}
+               {% block tbody %}
+                   <tr>
+                       <td>DSFR-102</td>
+                       <td>Validé</td>
+                       <td>19/10/2026</td>
+                   </tr>
+                   <tr>
+                       <td>DSFR-204</td>
+                       <td>En cours</td>
+                       <td>18/10/2026</td>
+                   </tr>
+               {% endblock %}
+           </twig:UxDsfr:Table>
+       </div>
+    </div>
+
+   <div class="fr-mt-4v">
+       <h3 class="fr-h4">Code exemple</h3>
+       <div class="code-snippet">
+           {% set code = "&lt;twig:UxDsfr:Table caption=\"Historique des demandes\" bordered=\"true\" scrollable=\"true\"&gt;
+   {% block thead %}
+       &lt;tr&gt;
+           &lt;th scope=\"col\"&gt;Dossier&lt;/th&gt;
+           &lt;th scope=\"col\"&gt;Statut&lt;/th&gt;
+           &lt;th scope=\"col\"&gt;Dernière mise à jour&lt;/th&gt;
+       &lt;/tr&gt;
+   {% endblock %}
+   {% block tbody %}
+       &lt;tr&gt;
+           &lt;td&gt;DSFR-102&lt;/td&gt;
+           &lt;td&gt;Validé&lt;/td&gt;
+           &lt;td&gt;19/10/2026&lt;/td&gt;
+       &lt;/tr&gt;
+   {% endblock %}
 &lt;/twig:UxDsfr:Table&gt;" %}
             <pre><code class="language-html">{{ code|raw }}</code></pre>
         </div>
     </div>
+
+   <div class="fr-mt-4v">
+       <h3 class="fr-h4">Bonnes pratiques</h3>
+       <ul>
+           <li>Fournir un <code>caption</code> explicite pour chaque tableau de données.</li>
+           <li>Utiliser <code>th scope="col"</code> ou <code>scope="row"</code> pour les en-têtes.</li>
+           <li>Limiter les variantes à celles supportées par DSFR : <code>bordered</code>, <code>scrollable</code> et <code>stickyHeader</code>.</li>
+       </ul>
+   </div>
 {% endblock %}

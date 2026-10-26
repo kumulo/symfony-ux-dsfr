@@ -1,8 +1,23 @@
-<div class="fr-table{% if noScroll %} fr-table--no-scroll{% endif %}">
-    <table{% if bordered %} class="fr-table--bordered"{% endif %}>
-        {% if not noCaption %}
-        <caption>{% block caption %}{% endblock %}</caption>
+<div
+        {{ attributes.defaults({
+            class: 'fr-table' ~ (scrollable ? ' fr-table--no-scroll' : '') ~ (stickyHeader ? ' fr-table--sticky' : '')
+        }) }}
+>
+    <table{% if id %} id="{{ id }}"{% endif %}{% if bordered %} class="fr-table--bordered"{% endif %}>
+        {% if caption %}
+            <caption>{{ caption }}</caption>
         {% endif %}
-        {% block content %}{% endblock %}
+
+        {% if block('thead') is defined %}
+            <thead>
+            {% block thead %}{% endblock %}
+            </thead>
+        {% endif %}
+
+        {% if block('tbody') is defined %}
+            <tbody>
+            {% block tbody %}{% endblock %}
+            </tbody>
+        {% endif %}
     </table>
 </div>

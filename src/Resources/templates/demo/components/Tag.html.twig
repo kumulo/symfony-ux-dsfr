@@ -1,17 +1,32 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Tag</h2>
+    <h1 class="fr-h1">Tag</h1>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Tag</code> permet d’étiqueter un statut, une catégorie ou une information de manière lisible et discrète, selon les variantes de couleur du DSFR.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
     <div class="fr-mt-4v">
         <h3 class="fr-h4">Rendu</h3>
         <div class="fr-mt-4v">
-            <p>Les tags permettent d'attirer l'attention sur un statut, une étiquette ou une catégorie.</p>
+            <p>Les tags DSFR sont conçus pour distinguer un statut ou une catégorie sans nuire à la lisibilité.</p>
             <div class="fr-mt-2v">
                 <twig:UxDsfr:Tag>Par défaut</twig:UxDsfr:Tag>
-                <twig:UxDsfr:Tag variant="success">Succès</twig:UxDsfr:Tag>
-                <twig:UxDsfr:Tag variant="error">Erreur</twig:UxDsfr:Tag>
-                <twig:UxDsfr:Tag variant="info">Info</twig:UxDsfr:Tag>
-                <twig:UxDsfr:Tag variant="warning">Attention</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag href="#">Par défaut cliquable</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag href="#" variant="blue-cumulus">Info</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag href="#" variant="purple-glycine">Nouveau</twig:UxDsfr:Tag>
+            </div>
+            <p class="fr-mt-4v">Les tags DSFR possèdent une variante sélectionnable.</p>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Tag pressable="true" pressed="true" variant="green-emeraude">Filtre actif</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag pressable="true" variant="yellow-tournesol">Attention</twig:UxDsfr:Tag>
+            </div>
+            <p class="fr-mt-4v">Les tags DSFR possèdent une variante supprimable.</p>
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Tag dismissable="true">Filtre supprimable</twig:UxDsfr:Tag>
+                <twig:UxDsfr:Tag dismissable="true" title="Retirer le filtre supprimable 2">Filtre supprimable 2</twig:UxDsfr:Tag>
             </div>
         </div>
     </div>
@@ -21,31 +36,52 @@
         <div class="fr-mt-4v">
             <h4 class="fr-h5">Intégration dans une liste</h4>
             <ul>
-                <li>Article A <twig:UxDsfr:Tag variant="info">Nouveau</twig:UxDsfr:Tag></li>
-                <li>Article B <twig:UxDsfr:Tag variant="warning">Bêta</twig:UxDsfr:Tag></li>
-                <li>Article C <twig:UxDsfr:Tag variant="success">Publié</twig:UxDsfr:Tag></li>
+                <li>Article A <twig:UxDsfr:Tag href="#" variant="blue-cumulus">Nouveau</twig:UxDsfr:Tag></li>
+                <li>Article B <twig:UxDsfr:Tag href="#" variant="yellow-tournesol">Bêta</twig:UxDsfr:Tag></li>
+                <li>Article C <twig:UxDsfr:Tag href="#" variant="green-emeraude">Publié</twig:UxDsfr:Tag></li>
             </ul>
         </div>
     </div>
 
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Code &nbsp;snippets</h3>
+        <h3 class="fr-h4">Code snippets</h3>
         <div class="code-snippet">
             <h4 class="fr-h5">Tag simple</h4>
             {% set code1 = "&lt;twig:UxDsfr:Tag&gt;Par défaut&lt;/twig:UxDsfr:Tag&gt;" %}
+            <twig:UxDsfr:Highlight>
             <pre><code class="language-html">{{ code1|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
 
-            <h4 class="fr-h5">Avec variante</h4>
-            {% set code2 = "&lt;twig:UxDsfr:Tag variant=\"success\"&gt;Succès&lt;/twig:UxDsfr:Tag&gt;" %}
-            <pre><code class="language-html">{{ code2|raw }}</code></pre>
+            <h4 class="fr-h5">Avec variante DSFR</h4>
+            {% set code2 = "&lt;twig:UxDsfr:Tag variant=\"green-emeraude\"&gt;Succès&lt;/twig:UxDsfr:Tag&gt;" %}
+            <twig:UxDsfr:Highlight>
+                <pre><code class="language-html">{{ code2|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
 
-            <h4 class="fr-h5">Dans un lien</h4>
-            {% set code3 = "&lt;a href=\"#\" class=\"fr-link\"&gt;&lt;twig:UxDsfr:Tag variant=\"info\"&gt;Nouveau&lt;/twig:UxDsfr:Tag&gt; Détails&lt;/a&gt;" %}
+            <h4 class="fr-h5">Tag sélectionnable</h4>
+            {% set code3 = "&lt;twig:UxDsfr:Tag pressable=\"true\" pressed=\"true\" variant=\"green-emeraude\"&gt;Filtre actif&lt;/twig:UxDsfr:Tag&gt;" %}
+            <twig:UxDsfr:Highlight>
             <pre><code class="language-html">{{ code3|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+
+            <h4 class="fr-h5">Tag supprimable</h4>
+            {% set code3 = "&lt;twig:UxDsfr:Tag dismissable=\"true\" title=\"Retirer le filtre supprimable\"&gt;Filtre supprimable&lt;/twig:UxDsfr:Tag&gt;" %}
+            <twig:UxDsfr:Highlight>
+            <pre><code class="language-html">{{ code3|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+
+            <h4 class="fr-h5">Tag cliquable par lien</h4>
+            {% set code4 = "&lt;twig:UxDsfr:Tag href=\"#\" variant=\"blue-cumulus\" title=\"Voir le statut\"&gt;Nouveau&lt;/twig:UxDsfr:Tag&gt;" %}
+            <twig:UxDsfr:Highlight>
+                <pre><code class="language-html">{{ code4|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
 
             <h4 class="fr-h5">Propriétés disponibles</h4>
-            {% set code4 = "variant: 'default' | 'success' | 'error' | 'info' | 'warning'" %}
+            {% set code5 = "variant: 'default' | 'green-emeraude' | 'green-menthe' | 'blue-cumulus' | 'purple-glycine' | 'pink-macaron' | 'yellow-tournesol' | 'orange-terre-battue' | 'brown-cafe-creme' | 'grey'\nsize: 'sm' | 'md'\npressable: true | false\npressed: true | false\nhref: URL facultative\ntitle: texte d’aide facultatif" %}
+            <pre><code class="language-text">{{ code5|raw }}</code></pre>
+            <twig:UxDsfr:Highlight>
             <pre><code class="language-text">{{ code4|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
         </div>
     </div>
 {% endblock %}

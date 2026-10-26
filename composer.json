@@ -2,7 +2,7 @@
   "name": "kumulo/symfony-ux-dsfr",
   "description": "Symfony UX DSFR bundle",
   "type": "bundle",
-  "license": "public",
+  "license": "MIT",
   "minimum-stability": "stable",
   "prefer-stable": true,
   "keywords": [
@@ -24,15 +24,6 @@
     "twig/extra-bundle": "^2.12|^3.23",
     "twig/twig": "^2.12|^3.23"
   },
-  "config": {
-    "allow-plugins": {
-      "php-http/discovery": true,
-      "symfony/flex": true,
-      "symfony/runtime": true
-    },
-    "bump-after-update": true,
-    "sort-packages": true
-  },
   "autoload": {
     "psr-4": {
       "SymfonyUxDsfr\\": "src/"
@@ -41,12 +32,6 @@
   "autoload-dev": {
     "psr-4": {
       "SymfonyUxDsfr\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "symfony": {
-      "allow-contrib": false,
-      "require": "7.4.*"
     }
   },
   "require-dev": {

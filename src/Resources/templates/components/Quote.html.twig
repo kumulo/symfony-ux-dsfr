@@ -1,8 +1,42 @@
-<div class="fr-quote">
+<figure class="fr-quote{% if image %} fr-quote--column{% endif %}">
     <blockquote class="fr-quote__text">
         {% block content %}{% endblock %}
     </blockquote>
-    {% if author %}
-    <p class="fr-quote__author">{{ author }}{% if source %} - {{ source }}{% endif %}</p>
-    {% endif %}
-</div>
+    <figcaption>
+        {% if author %}
+        <p class="fr-quote__author">{{ author }}</p>
+        {% endif %}
+        {% if image %}
+            <div class="fr-quote__image">
+                <img class="fr-responsive-img" src="{{ image }}" alt="{{ image_alt }}" />
+            </div>
+        {% endif %}
+        {% if sources %}
+            <ul class="fr-quote__source">
+                {% for item in sources %}
+                    {% if item is iterable %}
+                        {% set label = item.label ?? item.title ?? item.name ?? '' %}
+                        {% set href = item.href ?? item.url ?? null %}
+                        {% set is_cite = item.cite ?? false %}
+                    {% else %}
+                        {% set label = item %}
+                        {% set href = null %}
+                        {% set is_cite = false %}
+                    {% endif %}
+
+                    {% if label %}
+                        <li>
+                            {% if href %}
+                                <a target="_blank" rel="noopener external" href="{{ href }}">{{ label }}</a>
+                            {% elseif is_cite %}
+                                <cite>{{ label }}</cite>
+                            {% else %}
+                                {{ label }}
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </figcaption>
+</figure>

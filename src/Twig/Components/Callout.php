@@ -13,14 +13,14 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 class Callout
 {
     #[ExposeInTemplate]
-    public string $color = 'green-emeraude';
+    public string $color = '';
 
     #[PreMount]
     public function preMount(array $data): array
     {
         $resolver = new OptionsResolver();
-        $resolver->setDefaults(['color' => 'green-emeraude']);
-        $resolver->setAllowedValues('color', ['green-emeraude', 'green-menthe', 'blue-ecume', 'purple-glycine', 'pink-macaron', 'yellow-tournesol', 'orange-terre-battue', 'brown-cafe-creme', 'grey']);
+        $resolver->setDefaults(['color' => '']);
+        $resolver->setAllowedValues('color', ['', 'green-emeraude', 'green-menthe', 'blue-ecume', 'purple-glycine', 'pink-macaron', 'yellow-tournesol', 'orange-terre-battue', 'brown-cafe-creme', 'grey']);
 
         return $resolver->resolve($data) + $data;
     }

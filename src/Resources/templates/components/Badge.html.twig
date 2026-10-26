@@ -1,3 +1,5 @@
 <p {{ attributes.defaults({'class': 'fr-badge fr-badge--' ~ type ~ ' fr-badge--' ~ size}) }}>
+    {% if ellipsis %}<span class="fr-ellipsis">{% endif %}
     {{ content }}
+    {% if ellipsis %}</span>{% endif %}
 </p>

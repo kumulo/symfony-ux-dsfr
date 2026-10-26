@@ -1,3 +1,25 @@
-<span class="fr-tag fr-tag--{{ variant }}">
-    {% block content %}{% endblock %}
-</span>
+{% set classes = ['fr-tag'] %}
+{% set content %}{% block content %}{% endblock %}{% endset %}
+{% if size != 'md' %}{% set classes = classes|merge(['fr-tag--' ~ size]) %}{% endif %}
+{% if variant != 'default' %}{% set classes = classes|merge(['fr-tag--' ~ variant]) %}{% endif %}
+{% if pressable %}{% set classes = classes|merge(['fr-tag--clickable']) %}{% endif %}
+{% if dismissable %}{% set classes = classes|merge(['fr-tag--dismiss']) %}{% endif %}
+
+{% if href and not pressable %}
+    <a href="{{ href }}" class="{{ classes|join(' ') }}"{% if title %} title="{{ title }}"{% endif %}{% if target and target != '_self' %} target="{{ target }}"{% if target == '_blank' %} rel="noopener noreferrer"{% endif %}{% endif %}>
+        {{ content }}
+    </a>
+{% elseif dismissable %}
+    <button type="{{ type }}" class="{{ classes|join(' ') }}"{% if title %} aria-label="{{ title }}"{% endif %}>
+        {{ content }}
+    </button>
+{% elseif pressable %}
+    <button type="{{ type }}" class="{{ classes|join(' ') }}"{% if title %} title="{{ title }}"{% endif %}{% if pressed %} aria-pressed="true"{% else %} aria-pressed="false"{% endif %}>
+        {{ content }}
+    </button>
+{% else %}
+    <span class="{{ classes|join(' ') }}"{% if title %} title="{{ title }}"{% endif %}>
+        {{ content }}
+    </span>
+{% endif %}
+

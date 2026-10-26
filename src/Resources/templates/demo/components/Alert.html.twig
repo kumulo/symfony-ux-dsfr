@@ -1,8 +1,14 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Alert</h2>
+    <h1 class="fr-h1">Alert</h1>
     <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Alert</code> sert à afficher un message d’information, de mise en garde ou de confirmation avec le style DSFR.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+<div class="fr-mt-4v">
         <h3 class="fr-h4">Rendu</h3>
         <div class="fr-mt-4v">
             <twig:UxDsfr:Alert>

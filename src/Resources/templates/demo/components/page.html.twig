@@ -15,6 +15,14 @@
     <twig:UxDsfr:Footer />
 {% endset %}
 <twig:UxDsfr:Layout:Page>
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('dsfr-demo', null, 'dsfr') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('dsfr-demo', null, 'dsfr') }}
+    {% endblock %}
     {% block page %}
     {{ page_content }}
     {% endblock %}

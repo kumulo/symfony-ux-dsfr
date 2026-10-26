@@ -1,25 +1,68 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Quote</h2>
+    <h1 class="fr-h1">Quote</h1>
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Rendu</h3>
-        <div class="fr-mt-4v">
-            <twig:UxDsfr:Quote author="Auteur">
-                Ceci est une citation.
-            </twig:UxDsfr:Quote>
-            <twig:UxDsfr:Quote author="Auteur" source="Source">
-                Une autre citation avec source.
-            </twig:UxDsfr:Quote>
-        </div>
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Quote</code> met en page une citation ou un témoignage avec la mise en forme typographique DSFR.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+    <h2 class="fr-h3 fr-mt-8v">Rendu</h2>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Quote>
+            Ceci est une citation.
+        </twig:UxDsfr:Quote>
     </div>
     <div class="fr-mt-4v">
-        <h3 class="fr-h4">Code snippel</h3>
-        <div class="code-snippet">
-            {% set code = "&lt;twig:UxDsfr:Quote author=\"Auteur\"&gt;
+        <p><strong>Code snippet</strong></p>
+        {% set code = "&lt;twig:UxDsfr:Quote&gt;
+    Ceci est une citation.
+&lt;/twig:UxDsfr:Quote&gt;&lt;div&gt;Toto&lt;/div&gt;" %}
+        <pre><code class="language-haml">{{ code|raw }}</code></pre>
+    </div>
+    <h2 class="fr-h3 fr-mt-8v">Auteur</h2>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Quote author="Auteur">
+            Ceci est une citation.
+        </twig:UxDsfr:Quote>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        {% set code = "&lt;twig:UxDsfr:Quote author=\"Auteur\"&gt;
     Ceci est une citation.
 &lt;/twig:UxDsfr:Quote&gt;" %}
-            <pre><code class="language-html">{{ code|raw }}</code></pre>
-        </div>
+        <pre class="language-haml"><code>{{ code|raw }}</code></pre>
+    </div>
+    <h2 class="fr-h3 fr-mt-8v">Image</h2>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Quote author="Auteur" image="{{ asset('bundles/symfonyuxdsfr/images/placeholder.1x1.png') }}" image_alt="Illustration de la citation">
+            Ceci est une citation.
+        </twig:UxDsfr:Quote>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        {% set code = "&lt;twig:UxDsfr:Quote author=\"Auteur\" image=\"{{ asset('bundles/symfonyuxdsfr/images/placeholder.1x1.png') }}\" image_alt=\"Illustration de la citation\"&gt;
+    Ceci est une citation.
+&lt;/twig:UxDsfr:Quote&gt;" %}
+        <pre class="language-haml"><code>{{ code|raw }}</code></pre>
+    </div>
+    <h2 class="fr-h3 fr-mt-8v">Sources</h2>
+    <div class="fr-mt-4v">
+        {% set quote_sources = [
+            { 'label': 'Ouvrage', 'cite': true },
+            'Détail 1',
+            { 'label': 'Détail 2', 'href': '#' }
+        ] %}
+        <twig:UxDsfr:Quote author="Auteur" image="{{ asset('bundles/symfonyuxdsfr/images/placeholder.1x1.png') }}" image_alt="Illustration de la citation" :sources="quote_sources">
+            Ceci est une citation.
+        </twig:UxDsfr:Quote>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        {% set code = "{% set quote_sources = [\n    { 'label': 'Ouvrage', 'cite': true },\n    'Détail 1',\n    { 'label': 'Détail 2', 'href': 'https://example.com' }\n] %}\n\n&lt;twig:UxDsfr:Quote author=\"Auteur\" image=\"{{ asset('bundles/symfonyuxdsfr/images/placeholder.1x1.png') }}\" image_alt=\"Illustration de la citation\" :sources=\"quote_sources\"&gt;
+    Ceci est une citation.
+&lt;/twig:UxDsfr:Quote&gt;" %}
+        <pre class="language-twig language-haml"><code>{{ code|raw }}</code></pre>
     </div>
 {% endblock %}

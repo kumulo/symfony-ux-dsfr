@@ -1,9 +1,14 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Breadcrumb (Fil d'Ariane)</h2>
-
+    <h1 class="fr-h1">Breadcrumb</h1>
     <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Breadcrumb</code> aide l’utilisateur à se repérer dans la hiérarchie de navigation d’une page.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+<div class="fr-mt-4v">
         <h3 class="fr-h4">Rendu</h3>
         <div class="fr-mt-4v">
             {# Exemple de fil d'Ariane avec plusieurs éléments, le dernier élément est la page courante #}

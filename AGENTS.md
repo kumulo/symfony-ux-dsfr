@@ -8,6 +8,7 @@ This is a Symfony UX bundle that provides Twig components implementing the Frenc
 - `src/Resources/templates/components/`: Twig templates using DSFR CSS classes
 - `src/Resources/assets/`: Frontend assets (JS, SCSS) importing @gouvfr/dsfr
 - Nested components in subdirectories (e.g., `Header/Brand.php`, `Footer/Logo.php`)
+- Custom agent skills are stored in `.agents/skills/` for repository-specific automation and tooling
 
 ## Component Patterns
 - **PHP Classes**: Use `#[AsTwigComponent]`, `#[ExposeInTemplate]` for properties, `#[PreMount]` with OptionsResolver for validation

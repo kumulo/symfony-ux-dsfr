@@ -1,11 +1,17 @@
 {% extends "@UxDsfr/demo/components.html.twig" %}
 
 {% block text_content %}
-    <h2 class="fr-h3">Badge</h2>
+    <h1 class="fr-h1">Badge</h1>
     <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Badge</code> met en avant un statut, une catégorie ou une information courte avec une couleur codifiée.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h2 class="fr-h2">Types</h2>
         <h3 class="fr-h4">Rendu</h3>
         <div class="fr-mt-4v">
-            <h4 class="fr-h5">Types</h4>
             <div class="fr-mt-2v">
                 <twig:UxDsfr:Badge type="info" content="Info"/>
                 <twig:UxDsfr:Badge type="warning" content="Warning"/>
@@ -14,45 +20,29 @@
             </div>
         </div>
         <div class="fr-mt-4v">
-            <h4 class="fr-h5">Tailles</h4>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Badge size="sm" content="Small"/>
-                <twig:UxDsfr:Badge size="md" content="Medium"/>
-                <twig:UxDsfr:Badge size="lg" content="Large"/>
-            </div>
-        </div>
-        <div class="fr-mt-4v">
-            <h4 class="fr-h5">Combinaisons</h4>
-            <div class="fr-mt-2v">
-                <twig:UxDsfr:Badge type="success" size="sm" content="✓ Succès"/>
-                <twig:UxDsfr:Badge type="warning" size="md" content="⚠ Attention"/>
-                <twig:UxDsfr:Badge type="error" size="lg" content="✕ Erreur"/>
-            </div>
-        </div>
-    </div>
-    <div class="fr-mt-4v">
-        <h3 class="fr-h4">Exemples de code</h3>
-        <div class="code-snippet">
-            <h4 class="fr-h5">Type par défaut (info)</h4>
-            {% set code1 = "&lt;twig:UxDsfr:Badge content=\"Info\" /&gt;" %}
-            <pre><code class="language-html">{{ code1|raw }}</code></pre>
-
-            <h4 class="fr-h5">Avec type et taille</h4>
-            {% set code2 = "&lt;twig:UxDsfr:Badge type=\"success\" size=\"md\" content=\"✓ Succès\" /&gt;" %}
-            <pre><code class="language-html">{{ code2|raw }}</code></pre>
-
-            <h4 class="fr-h5">Tous les types disponibles</h4>
+            <p><strong>Code snippet</strong></p>
             {% set code3 = "&lt;twig:UxDsfr:Badge type=\"info\" content=\"Info\" /&gt;
 &lt;twig:UxDsfr:Badge type=\"warning\" content=\"Warning\" /&gt;
 &lt;twig:UxDsfr:Badge type=\"error\" content=\"Error\" /&gt;
 &lt;twig:UxDsfr:Badge type=\"success\" content=\"Success\" /&gt;" %}
-            <pre><code class="language-html">{{ code3|raw }}</code></pre>
-
-            <h4 class="fr-h5">Toutes les tailles disponibles</h4>
+            <twig:UxDsfr:Highlight>
+                <pre><code class="language-html">{{ code3|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+        </div>
+        <h2 class="fr-h2">Tailles</h2>
+        <div class="fr-mt-4v">
+            <div class="fr-mt-2v">
+                <twig:UxDsfr:Badge size="sm" content="Small"/>
+                <twig:UxDsfr:Badge size="md" content="Medium"/>
+            </div>
+        </div>
+        <div class="fr-mt-4v">
+            <p><strong>Code snippet</strong></p>
             {% set code4 = "&lt;twig:UxDsfr:Badge size=\"sm\" content=\"Small\" /&gt;
-&lt;twig:UxDsfr:Badge size=\"md\" content=\"Medium\" /&gt;
-&lt;twig:UxDsfr:Badge size=\"lg\" content=\"Large\" /&gt;" %}
-            <pre><code class="language-html">{{ code4|raw }}</code></pre>
+&lt;twig:UxDsfr:Badge size=\"md\" content=\"Medium\" /&gt;" %}
+            <twig:UxDsfr:Highlight>
+                <pre><code class="language-html">{{ code4|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
         </div>
     </div>
 {% endblock %}

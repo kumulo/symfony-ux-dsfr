@@ -23,6 +23,7 @@ Encore
      */
     .addEntry('dsfr', assetsDir + '/index.js')
     .addEntry('dsfr-hljs', assetsDir + '/hljs.js')
+    .addEntry('dsfr-demo', assetsDir + '/demo.js')
 
     // Copier les fichiers images
     .copyFiles({

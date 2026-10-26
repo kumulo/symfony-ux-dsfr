@@ -8,3 +8,7 @@ services:
 
   SymfonyUxDsfr\Controller\:
     resource: '../../Controller'
+
+  SymfonyUxDsfr\Assets\AssetPackage:
+    tags:
+      - { name: assets.package, package: 'symfonyuxdsfr.assets.package' }

@@ -19,6 +19,9 @@ class Badge
     public string $size = 'md';
 
     #[ExposeInTemplate]
+    public bool $ellipsis = false;
+
+    #[ExposeInTemplate]
     public string $content;
 
     #[PreMount]
@@ -29,6 +32,7 @@ class Badge
         $resolver->setDefaults([
             'type' => 'info',
             'size' => 'md',
+            'ellipsis' => false,
         ]);
 
         $resolver->setAllowedValues('type', ['info', 'warning', 'error', 'success']);

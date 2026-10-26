@@ -1,11 +1,11 @@
 {% extends "@UxDsfr/demo/components/page.html.twig" %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('dsfr-hljs', null, 'dsfr') }}
+    {{ encore_entry_link_tags('dsfr-demo', null, 'dsfr') }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    {{ encore_entry_script_tags('dsfr-hljs', null, 'dsfr') }}
+    {{ encore_entry_script_tags('dsfr-demo', null, 'dsfr') }}
 {% endblock %}
 {% if block('text_content') is defined %}
     {% set col2 = block('text_content') %}
