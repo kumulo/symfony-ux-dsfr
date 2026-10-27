@@ -33,6 +33,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./package.json
       - run: npm install
+      - run: npm update
       - run: npx encore production
       - name: Create Release
         id: create_release
