@@ -5,7 +5,6 @@
 
 /composer.lock
 /yarn.lock
-/src/Resources/public/
 
 # PHP CS Fixer configuration
 /.php-cs-fixer.cache

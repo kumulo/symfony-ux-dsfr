@@ -1,0 +1,36 @@
+{
+  "entrypoints": {
+    "dsfr": {
+      "js": [
+        "/bundles/symfonyuxdsfr/runtime.b8b10b84.js",
+        "/bundles/symfonyuxdsfr/593.ccb22a6a.js",
+        "/bundles/symfonyuxdsfr/dsfr.78b1487b.js"
+      ],
+      "css": [
+        "/bundles/symfonyuxdsfr/593.f70b1278.css",
+        "/bundles/symfonyuxdsfr/dsfr.31d6cfe0.css"
+      ]
+    },
+    "dsfr-hljs": {
+      "js": [
+        "/bundles/symfonyuxdsfr/runtime.b8b10b84.js",
+        "/bundles/symfonyuxdsfr/416.cb915d46.js",
+        "/bundles/symfonyuxdsfr/dsfr-hljs.4fcda1f1.js"
+      ],
+      "css": [
+        "/bundles/symfonyuxdsfr/dsfr-hljs.20e78fab.css"
+      ]
+    },
+    "dsfr-demo": {
+      "js": [
+        "/bundles/symfonyuxdsfr/runtime.b8b10b84.js",
+        "/bundles/symfonyuxdsfr/416.cb915d46.js",
+        "/bundles/symfonyuxdsfr/477.b11dd875.js",
+        "/bundles/symfonyuxdsfr/dsfr-demo.da1740c5.js"
+      ],
+      "css": [
+        "/bundles/symfonyuxdsfr/dsfr-demo.c00633f0.css"
+      ]
+    }
+  }
+}

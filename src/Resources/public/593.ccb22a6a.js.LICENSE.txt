@@ -1,0 +1,1 @@
+/*! DSFR v1.15.4 | SPDX-License-Identifier: Etalab-2.0 | License-Filename: LICENSE.md | restricted use (see terms and conditions) */

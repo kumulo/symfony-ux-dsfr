@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_kumulo_symfony_ux_dsfr=self.webpackChunk_kumulo_symfony_ux_dsfr||[]).push([[360],{33442(s,u,e){e(83348);document.addEventListener("DOMContentLoaded",function(){dsfr.start()})}},s=>{s.O(0,[593],()=>s(33442));s.O()}]);
