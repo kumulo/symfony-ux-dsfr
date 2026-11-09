@@ -24,7 +24,7 @@ class Footer
     public ?array $partners = null;
 
     #[PreMount]
-    public function postMount(array $data): array
+    public function preMount(array $data): array
     {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined();

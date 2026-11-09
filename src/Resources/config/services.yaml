@@ -6,9 +6,9 @@ services:
   SymfonyUxDsfr\Twig\Components\:
     resource: '../../Twig/Components'
 
-  SymfonyUxDsfr\Controller\:
-    resource: '../../Controller'
-
   SymfonyUxDsfr\Assets\AssetPackage:
     tags:
       - { name: assets.package, package: 'symfonyuxdsfr.assets.package' }
+
+  SymfonyUxDsfr\Controller\:
+    resource: '../../Controller'

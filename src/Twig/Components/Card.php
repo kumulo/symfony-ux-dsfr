@@ -23,6 +23,9 @@ class Card
 
     #[ExposeInTemplate]
     public bool $horizontal = false;
+
+    #[ExposeInTemplate]
+    public bool $download = false;
     #[ExposeInTemplate]
     public ?string $file_size = null;
     #[ExposeInTemplate]
@@ -33,7 +36,9 @@ class Card
     {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined();
-        $defaultType = 'fr-enlarge-link'.(isset($data['horizontal']) ? ' fr-card--download' : '');
+        $defaultType = 'fr-enlarge-link';
+        $defaultType .= (isset($data['horizontal']) ? ' fr-card--horizontal' : '');
+        $defaultType .= (isset($data['download']) ? ' fr-card--download' : '');
         $resolver->setDefaults([
             'link_type' => $defaultType,
         ]);

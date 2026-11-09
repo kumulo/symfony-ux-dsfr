@@ -2,6 +2,7 @@ utils:
   close: Fermer
   search: Rechercher
   menu: Menu
+  select_language: Sélectionner une langue
 theme_switcher:
   title: Paramètres d’affichage
   button: Paramètres d'affichage
