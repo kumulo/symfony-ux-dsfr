@@ -119,5 +119,50 @@
             </twig:UxDsfr:Highlight>
         </div>
     </div>
+    <h2 class="fr-h3 fr-mt-8v">Ajouter une barre de recherche</h2>
+    <div class="fr-mt-4v">
+        {% set sub_menu %}
+            <twig:UxDsfr:Nav:Item href="#lien1">Lien 1</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien2">Lien 2</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien3">Lien 3</twig:UxDsfr:Nav:Item>
+        {% endset %}
+        {% set navigation %}
+            <twig:UxDsfr:Nav:Item href="#lien1">Lien 1</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien2">Lien 2</twig:UxDsfr:Nav:Item>
+            <twig:UxDsfr:Nav:Item href="#lien3">
+                Lien 3
+                {% block sub_menu %}
+                    {{ sub_menu }}
+                {% endblock %}
+            </twig:UxDsfr:Nav:Item>
+        {% endset %}
+        <twig:UxDsfr:Header
+                header_service_title="Mon service"
+                header_service_tag="Ma tagline"
+                show_menu_button="true"
+                show_search_button="true"
+        >
+            {% block header_navigation %}
+                {{ navigation }}
+            {% endblock %}
+        </twig:UxDsfr:Header>
     </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:Header
+        header_service_title=\"Mon service\"
+        header_service_tag=\"Ma tagline\"
+        show_menu_button=\"true\"
+    &gt;
+        {% block header_navigation %}
+            {{ navigation }}
+        {% endblock %}
+&lt;/twig:UxDsfr:Header&gt;" %}
+            <twig:UxDsfr:Highlight>
+                <pre><code class="language-html">{{ code|raw }}</code></pre>
+            </twig:UxDsfr:Highlight>
+        </div>
+    </div>
+</div>
 {% endblock %}

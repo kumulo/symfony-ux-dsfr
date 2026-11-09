@@ -23,7 +23,7 @@
                             {% if availables_languages and availables_languages|length > 1 %}
                                 <div id="header-translate" class="fr-translate fr-nav">
                                     <div class="fr-nav__item fr-nav__item--align-right">
-                                        <button aria-controls="translate-collapse" aria-expanded="false" title="Sélectionner une langue" type="button" class="fr-translate__btn fr-btn fr-btn--tertiary">
+                                        <button aria-controls="translate-collapse" aria-expanded="false" title="{{ 'utils.select_language'|trans({}, 'dsfr') }}" type="button" class="fr-translate__btn fr-btn fr-btn--tertiary">
                                             {{ app.request.locale|upper }}
                                             <span class="fr-hidden-lg">&nbsp;- {{ availables_languages[app.request.locale].label }}</span>
                                         </button>
@@ -42,27 +42,28 @@
                         </div>
                     {% endif %}
                     {% if show_search_button %}
-                    <div class="fr-header__search fr-modal" id="search-modal" data-fr-js-modal="true" data-fr-js-header-modal="true" data-fr-js-header-modal-actionee="true" data-fr-js-modal-actionee="true">
-                        <div class="fr-container fr-container-lg--fluid">
-                            <button aria-controls="search-modal" title="Fermer" type="button" id="button-3" class="fr-btn--close fr-btn" data-fr-js-modal-button="true" data-fr-js-header-modal-button-actionee="true">
-                                Fermer
-                            </button>
-
-                            <div class="fr-search-bar" id="search" role="search" data-fr-js-search-actionee="true">
-                                <label class="fr-label" for="search-input">
-                                    Rechercher
-                                </label>
-
-                                <input class="fr-input" aria-describedby="search-input-messages" placeholder="Rechercher" id="search-input" type="search"><div class="dsfr-doc-search-results--dropdown" aria-live="polite"></div>
-
-                                <div class="fr-messages-group" id="search-input-messages" aria-live="polite"></div>
-
-                                <button data-href="/version-courante/fr/resultats-de-recherche" title="Rechercher" type="button" id="search-button" class="fr-btn" data-fr-js-button-actionee="true">
-                                    Rechercher
+                        {% block search_form %}
+                        <div class="fr-header__search fr-modal" id="search-modal" aria-labelledby="search-button">
+                            <div class="fr-container fr-container-lg--fluid">
+                                <button aria-controls="search-modal" title="{{ 'utils.close'|trans({}, 'dsfr') }}" type="button" class="fr-btn--close fr-btn">
+                                    {{ 'utils.close'|trans({}, 'dsfr') }}
                                 </button>
+
+                                <form class="fr-search-bar" id="search" role="search" action="{{ search.formAction }}" method="{{ search.formMethod }}">
+                                    <label class="fr-label" for="search-input">
+                                        {{ 'utils.search'|trans({}, 'dsfr') }}
+                                    </label>
+
+                                    <input class="fr-input" aria-describedby="search-input-messages" name="{{ search.inputName }}" placeholder="{{ 'utils.search'|trans({}, 'dsfr') }}" id="search-input" type="search" />
+                                    <div class="dsfr-doc-search-results--dropdown" aria-live="polite"></div>
+                                    <div class="fr-messages-group" id="search-input-messages" aria-live="polite"></div>
+                                    <button title="{{ 'utils.search'|trans({}, 'dsfr') }}" type="button" id="search-button" class="fr-btn">
+                                        {{ 'utils.search'|trans({}, 'dsfr') }}
+                                    </button>
+                                </form>
                             </div>
                         </div>
-                    </div>
+                        {% endblock %}
                     {% endif %}
                 </div>
                 {% endif %}
@@ -75,11 +76,11 @@
             <button aria-controls="{{ menu_id }}" title="{{ 'utils.close'|trans({}, 'dsfr') }}" type="button" class="fr-btn--close fr-btn">
                 {{ 'utils.close'|trans({}, 'dsfr') }}
             </button>
+            <div class="fr-header__menu-links">
+            </div>
             <twig:UxDsfr:Header:Nav>
                 {{ header_navigation }}
             </twig:UxDsfr:Header:Nav>
-            <div class="fr-header__menu-links">
-            </div>
         </div>
     </div>
     {% endif %}

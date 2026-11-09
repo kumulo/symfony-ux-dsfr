@@ -1,0 +1,14 @@
+utils:
+  close: Close
+  search: Search
+  menu: Menu
+  select_language: Select a language
+theme_switcher:
+  title: Display settings
+  button: Display settings
+  bright: Light theme
+  dark: Dark theme
+  system: >
+    System <span class="fr-hint-text">Use system settings</span>
+  choose: >
+    Choose a theme to customize the site’s appearance.
