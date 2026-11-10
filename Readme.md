@@ -28,6 +28,25 @@ return [
 ];
 ```
 
+### Configuration
+The defaults load the bundle's Encore build and add the DSFR form theme to every form. Both can be changed in `config/packages/dsfr.yaml`:
+```yaml
+dsfr:
+    # encore (default): the bundle's Encore build
+    # importmap: the application's "dsfr" importmap entrypoint, which imports the DSFR CSS and JS
+    # none: the layouts load nothing; add your own tags in the stylesheets and javascripts blocks
+    dsfr_integration_mode: importmap
+    # true (default) adds @UxDsfr/form/form_dsfr_layout.html.twig to the global form themes;
+    # set it to false to apply the theme only where you choose, with {% form_theme form '@UxDsfr/form/form_dsfr_layout.html.twig' %}
+    form_theme: false
+```
+With `importmap`, install the DSFR with `php bin/console importmap:require @gouvfr/dsfr` and declare a `dsfr` entrypoint in `importmap.php`, for example `assets/dsfr.js`:
+```js
+import '@gouvfr/dsfr/dist/dsfr.min.css';
+import '@gouvfr/dsfr/dist/utility/icons/icons.min.css';
+import '@gouvfr/dsfr/dist/dsfr.module.min.js';
+```
+
 Create a base template for your application that extends the DSFR layout. For example, create a `base-dsfr.html.twig` file in your `templates` directory:
 ```twig
 {% set page_content %}
