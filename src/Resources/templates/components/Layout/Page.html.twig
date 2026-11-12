@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head_meta %}{% endblock %}
     {% block stylesheets %}
-        {{ encore_entry_link_tags('dsfr', null, 'dsfr') }}
+        {{ block('stylesheets', '@UxDsfr/assets/' ~ ux_dsfr_integration_mode ~ '.html.twig') }}
     {% endblock %}
     {% block javascripts %}
-        {{ encore_entry_script_tags('dsfr', null, 'dsfr') }}
+        {{ block('javascripts', '@UxDsfr/assets/' ~ ux_dsfr_integration_mode ~ '.html.twig') }}
     {% endblock %}
 </head>
 <body>

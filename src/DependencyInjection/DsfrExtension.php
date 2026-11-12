@@ -28,10 +28,14 @@ class DsfrExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container): void
     {
-        $this->enableTwigConfiguration($container);
+        $config = $this->processConfiguration(new Configuration(), $container->getExtensionConfig($this->getAlias()));
+
+        $this->enableTwigConfiguration($container, $config);
         $this->enableTwigComponentConfiguration($container);
         $this->enableTranslatorConfiguration($container);
-        $this->enableWebpackConfiguration($container);
+        if ('encore' === $config['dsfr_integration_mode']) {
+            $this->enableWebpackConfiguration($container);
+        }
     }
 
     private function loadSearchConfig(array $config, ContainerBuilder $container): void
@@ -47,15 +51,20 @@ class DsfrExtension extends Extension implements PrependExtensionInterface
         }
     }
 
-    private function enableTwigConfiguration(ContainerBuilder $container): void
+    private function enableTwigConfiguration(ContainerBuilder $container, array $config): void
     {
         if ($container->hasExtension('twig')) {
             $container->prependExtensionConfig('twig', [
                 'paths' => [
                     dirname(__DIR__).'/Resources/templates' => 'UxDsfr',
                 ],
+                'globals' => [
+                    'ux_dsfr_integration_mode' => $config['dsfr_integration_mode'],
+                ],
             ]);
-            $container->prependExtensionConfig('twig', ['form_themes' => ['@UxDsfr/form/form_dsfr_layout.html.twig']]);
+            if ($config['form_theme']) {
+                $container->prependExtensionConfig('twig', ['form_themes' => ['@UxDsfr/form/form_dsfr_layout.html.twig']]);
+            }
         }
     }
 
