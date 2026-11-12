@@ -1,0 +1,12 @@
+<div class="fr-connect-group">
+    <button class="fr-connect {{ this.variation }}" type="{{ type }}">
+        <span class="fr-connect__login">{{ 'connect.description'|trans({}, 'dsfr') }}</span>
+        {% set name = 'connect.' ~ provider ~ '.name' %}
+        <span class="fr-connect__brand">{{ name|trans({}, 'dsfr') }}</span>
+    </button>
+    <p>
+        {% set link = 'connect.' ~ provider ~ '.link' %}
+        {% set whatis = 'connect.' ~ provider ~ '.whatis' %}
+        <a href="{{ link|trans({}, 'dsfr') }}" target="_blank" rel="noopener" title="{{ whatis|trans({}, 'dsfr') }} - {{ 'utils.new_window'|trans({}, 'dsfr') }}">{{ whatis|trans({}, 'dsfr') }}</a>
+    </p>
+</div>

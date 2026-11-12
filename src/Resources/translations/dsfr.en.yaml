@@ -3,6 +3,7 @@ utils:
   search: Search
   menu: Menu
   select_language: Select a language
+  new_window: New window
 theme_switcher:
   title: Display settings
   button: Display settings
@@ -12,3 +13,17 @@ theme_switcher:
     System <span class="fr-hint-text">Use system settings</span>
   choose: >
     Choose a theme to customize the site’s appearance.
+connect:
+  description: Sign in with
+  franceconnect:
+    name: FranceConnect
+    link: https://franceconnect.gouv.fr/
+    whatis: What is FranceConnect?
+  franceconnect_plus:
+    name: FranceConnect
+    link: https://franceconnect.gouv.fr/france-connect-plus
+    whatis: What is FranceConnect+?
+  proconnect:
+    name: ProConnect
+    link: https://proconnect.gouv.fr/
+    whatis: What is ProConnect?

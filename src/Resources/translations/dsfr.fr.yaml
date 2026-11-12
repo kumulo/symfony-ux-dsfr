@@ -3,6 +3,7 @@ utils:
   search: Rechercher
   menu: Menu
   select_language: Sélectionner une langue
+  new_window: Nouvelle fenêtre
 theme_switcher:
   title: Paramètres d’affichage
   button: Paramètres d'affichage
@@ -12,3 +13,17 @@ theme_switcher:
     Système <span class="fr-hint-text">Utilise les paramètres système</span>
   choose: >
     Choisissez un thème pour personnaliser l'apparence du site.
+connect:
+  description: S’identifier avec
+  franceconnect:
+    name: FranceConnect
+    link: https://franceconnect.gouv.fr/
+    whatis: Qu’est-ce que FranceConnect ?
+  franceconnect_plus:
+    name: FranceConnect
+    link: https://franceconnect.gouv.fr/france-connect-plus
+    whatis: Qu’est-ce que FranceConnect+ ?
+  proconnect:
+    name: ProConnect
+    link: https://proconnect.gouv.fr/
+    whatis: Qu’est-ce que ProConnect ?

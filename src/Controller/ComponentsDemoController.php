@@ -44,6 +44,12 @@ class ComponentsDemoController extends AbstractController
         return $this->render('@UxDsfr/demo/components/Button.html.twig');
     }
 
+    #[Route('/FranceConnect', '_FranceConnect')]
+    public function FranceConnect()
+    {
+        return $this->render('@UxDsfr/demo/components/FranceConnect.html.twig');
+    }
+
     #[Route('/Callout', '_Callout')]
     public function Callout()
     {

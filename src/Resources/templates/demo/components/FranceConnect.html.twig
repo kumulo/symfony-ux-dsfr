@@ -1,0 +1,52 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h1 class="fr-h1">FranceConnect</h1>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>FranceConnect</code> affiche le bouton d’authentification FranceConnect, FranceConnect+ et ProConnect du DSFR.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+    <h2 class="fr-h3">Rendu de base</h2>
+    <div class="fr-mt-4v">
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Button:FranceConnect />
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:FranceConnect /&gt;" %}
+            <twig:UxDsfr:Highlight><pre><code class="language-twig">{{ code|raw }}</code></pre></twig:UxDsfr:Highlight>
+        </div>
+    </div>
+
+    <h2 class="fr-h3 fr-mt-8v">FranceConnect+</h2>
+    <div class="fr-mt-4v">
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Button:FranceConnect provider="franceconnect_plus" />
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:FranceConnect provider=\"franceconnect_plus\" /&gt;" %}
+            <twig:UxDsfr:Highlight><pre><code class="language-twig">{{ code|raw }}</code></pre></twig:UxDsfr:Highlight>
+        </div>
+    </div>
+
+    <h2 class="fr-h3 fr-mt-8v">ProConnect</h2>
+    <div class="fr-mt-4v">
+        <div class="fr-mt-4v">
+            <twig:UxDsfr:Button:FranceConnect provider="proconnect" />
+        </div>
+    </div>
+    <div class="fr-mt-4v">
+        <p><strong>Code snippet</strong></p>
+        <div class="code-snippet">
+            {% set code = "&lt;twig:UxDsfr:FranceConnect provider=\"proconnect\" /&gt;" %}
+            <twig:UxDsfr:Highlight><pre><code class="language-twig">{{ code|raw }}</code></pre></twig:UxDsfr:Highlight>
+        </div>
+    </div>
+{% endblock %}
