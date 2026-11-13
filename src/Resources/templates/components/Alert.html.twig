@@ -1,5 +1,17 @@
-<div class="fr-alert fr-alert--{{ type }} fr-alert--sm">
-    <h3 class="fr-alert__title">{% block title %}Message{% endblock %}</h3>
-    {% block content %}<p>Contenu de l'alerte.</p>{% endblock %}
-    {% if closable %}<button title="Masquer le message" onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)" type="button" class="fr-btn--close fr-btn">Masquer le message</button>{% endif %}
+<div {{ attributes.defaults({ 'class': 'fr-alert fr-alert--' ~ type ~ (size == 'sm' ? ' fr-alert--sm' : '') }) }}>    
+    {% if block('title') is defined and block('title') is not empty %}
+        <h3 class="fr-alert__title">
+            {% block title %}{% endblock %}
+        </h3>
+    {% endif %}
+    {% block content %}{% endblock %}
+    {% if closable %}
+        <button title="Masquer le message"
+                onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)"
+                type="button"
+                class="fr-btn--close fr-btn"
+        >
+            Masquer le message
+        </button>
+    {% endif %}
 </div>

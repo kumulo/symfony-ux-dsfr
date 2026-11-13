@@ -8,20 +8,29 @@
         </twig:UxDsfr:Callout>
     </div>
 
-<div class="fr-mt-4v">
+    <div class="fr-mt-4v">
         <h3 class="fr-h4">Rendu</h3>
         <div class="fr-mt-4v">
             <twig:UxDsfr:Alert>
-                Contenu de l'alerte
+                {% block title %}Titre de l'information{% endblock %}
+                {% block content %}Contenu de l'information{% endblock %}
             </twig:UxDsfr:Alert>
-            <twig:UxDsfr:Alert type="warning"/>
+            <twig:UxDsfr:Alert type="warning">
+                {% block title %}Titre de l'alerte{% endblock %}
+            </twig:UxDsfr:Alert>
             <twig:UxDsfr:Alert type="error">
-                {% block title %}Erreur{% endblock %}
-                Il s'est passé quelque chose
+                {% block title %}Titre de l'erreur{% endblock %}
+                {% block content %}Il s'est passé quelque chose{% endblock %}
             </twig:UxDsfr:Alert>
             <twig:UxDsfr:Alert type="success">
                 {% block title %}OK{% endblock %}
-                Tout va bien
+                {% block content %}Tout va bien{% endblock %}
+            </twig:UxDsfr:Alert>
+            <twig:UxDsfr:Alert size="sm">
+                {% block content %}Information : Contenu de l'alerte en small size{% endblock %}
+            </twig:UxDsfr:Alert>
+            <twig:UxDsfr:Alert type="success" :closable="true">
+                {% block title %}Cliquer sur la croix pour fermer l'alerte{% endblock %}
             </twig:UxDsfr:Alert>
         </div>
     </div>
@@ -36,7 +45,7 @@
             <pre><code class="language-twig">{{ code|raw }}</code></pre>
             {% set code = "&lt;twig:UxDsfr:Alert type=\"success\"&gt;
     {% block title %}OK{% endblock %}
-    Tout va bien
+    {% block content %}Tout va bien{% endblock %}
 &lt;/twig:UxDsfr:Alert&gt;" %}
             <pre><code class="language-html">{{ code|raw }}</code></pre>
         </div>
