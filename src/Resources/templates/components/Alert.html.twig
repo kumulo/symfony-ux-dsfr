@@ -6,12 +6,12 @@
     {% endif %}
     {% block content %}{% endblock %}
     {% if closable %}
-        <button title="Masquer le message"
+        <button title="{{ 'alert.closable_label'|trans({}, 'dsfr') }}"
                 onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)"
                 type="button"
                 class="fr-btn--close fr-btn"
         >
-            Masquer le message
+            {{ 'alert.closable_label'|trans({}, 'dsfr') }}
         </button>
     {% endif %}
 </div>

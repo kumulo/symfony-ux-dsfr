@@ -12,3 +12,5 @@ theme_switcher:
     Système <span class="fr-hint-text">Utilise les paramètres système</span>
   choose: >
     Choisissez un thème pour personnaliser l'apparence du site.
+alert:
+  closable_label: Masquer le message

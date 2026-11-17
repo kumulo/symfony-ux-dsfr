@@ -12,3 +12,5 @@ theme_switcher:
     System <span class="fr-hint-text">Use system settings</span>
   choose: >
     Choose a theme to customize the site’s appearance.
+alert:
+  closable_label: Hide the message
