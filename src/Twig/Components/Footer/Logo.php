@@ -11,7 +11,9 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class Logo
 {
     #[ExposeInTemplate]
-    public ?string $service_logo = null;
+    public ?string $service_logo = null; // operator logo
     #[ExposeInTemplate]
-    public ?string $link = null;
+    public ?string $service_title = null; // operator name, the logo's alt
+    #[ExposeInTemplate]
+    public ?string $link = '/'; // home page
 }

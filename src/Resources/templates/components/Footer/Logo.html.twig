@@ -1,15 +1,21 @@
+{# Brand block: the home link wraps the Marianne block, or the operator logo when there is one #}
 <div class="fr-footer__brand fr-enlarge-link">
     {% set logo_name %}{% block content %}République<br>Française{% endblock %}{% endset %}
-    <twig:UxDsfr:GouvLogo>
-        {{ logo_name }}
-    </twig:UxDsfr:GouvLogo>
-    {% if link is not empty %}
-    <a href="{{ link }}" target="_blank" class="fr-footer__brand-link">
-    {% endif %}
+    {% set entity = logo_name|replace({'<br>': ' ', '<br/>': ' ', '<br />': ' '})|striptags|split("\n")|map(line => line|trim)|filter(line => line)|join(' ') %}
+    {% set home_title = 'footer.home_link_title'|trans({}, 'dsfr') %}
     {% if service_logo %}
-        <img class="fr-footer__logo" style="width: 3.5rem" src="{{ service_logo }}" />
-    {% endif %}
-    {% if link is not empty %}
-    </a>
+        <twig:UxDsfr:GouvLogo>{{ logo_name }}</twig:UxDsfr:GouvLogo>
+        {% set logo %}<img class="fr-footer__logo" style="width: 3.5rem" src="{{ service_logo }}" alt="{{ service_title }}">{% endset %}
+        {% if link %}
+            <a class="fr-footer__brand-link" href="{{ link }}" title="{{ home_title }} - {{ service_title }} - {{ entity }}">{{ logo }}</a>
+        {% else %}
+            {{ logo }}
+        {% endif %}
+    {% elseif link %}
+        <a href="{{ link }}" title="{{ home_title }} - {{ entity }}">
+            <twig:UxDsfr:GouvLogo>{{ logo_name }}</twig:UxDsfr:GouvLogo>
+        </a>
+    {% else %}
+        <twig:UxDsfr:GouvLogo>{{ logo_name }}</twig:UxDsfr:GouvLogo>
     {% endif %}
 </div>

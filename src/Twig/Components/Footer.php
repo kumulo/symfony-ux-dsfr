@@ -22,13 +22,15 @@ class Footer
     public ?string $service_title = null;
     #[ExposeInTemplate]
     public ?array $partners = null;
+    #[ExposeInTemplate]
+    public ?string $description = null; // fr-footer__content-desc, above the mandatory links
 
     #[PreMount]
     public function preMount(array $data): array
     {
         $resolver = new OptionsResolver();
         $resolver->setIgnoreUndefined();
-        $resolver->setDefaults(['partners' => []]);
+        $resolver->setDefaults(['partners' => [], 'service_link' => '/']);
         $resolver->setAllowedTypes('partners', ['null', 'array']);
 
         if (isset($data['partners']['main'])) {

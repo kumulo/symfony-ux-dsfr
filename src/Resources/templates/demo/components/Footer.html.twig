@@ -211,5 +211,20 @@ Blocs :
             <pre><code class="language-text">{{ code4|raw }}</code></pre>
         </div>
     </div>
-{% endblock %}
 
+    <div class="fr-mt-4v">
+        <h2 class="fr-h3">Options et blocs</h2>
+        <ul>
+            <li><code>service_link</code> : lien vers l’accueil du bloc marque (<code>/</code> par défaut), sur le bloc-marque, ou sur le logo opérateur (<code>service_logo</code>, <code>service_title</code> pour son texte alternatif)</li>
+            <li><code>description</code> : texte au-dessus des quatre liens obligatoires (info.gouv.fr, service-public.gouv.fr, legifrance.gouv.fr, data.gouv.fr), rendus par défaut ; le bloc <code>footer_content</code> remplace l’ensemble</li>
+            <li>bloc <code>footer_brand</code> : un <code>Footer:Logo</code> dont l’intitulé contient du balisage, par exemple sur plusieurs lignes</li>
+            <li>bloc <code>footer_copy</code> : remplace la mention de licence etalab-2.0</li>
+        </ul>
+        {% set code = "&lt;twig:UxDsfr:Footer description=\"Description du site.\"&gt;
+    &lt;twig:block name=\"footer_brand\"&gt;
+        &lt;twig:UxDsfr:Footer:Logo link=\"/\"&gt;Ministère&lt;br&gt;de l’exemple&lt;/twig:UxDsfr:Footer:Logo&gt;
+    &lt;/twig:block&gt;
+&lt;/twig:UxDsfr:Footer&gt;" %}
+        <pre><code class="language-html">{{ code|raw }}</code></pre>
+    </div>
+{% endblock %}

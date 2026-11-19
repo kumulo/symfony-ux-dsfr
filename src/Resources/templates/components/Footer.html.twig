@@ -1,13 +1,28 @@
-<footer class="fr-footer" role="contentinfo">
+<footer {{ attributes.defaults({'class': 'fr-footer', 'role': 'contentinfo', 'id': 'footer'}) }}>
     <div class="fr-container">
         <div class="fr-footer__body">
-            {% if logo_title %}
-                <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo">{{ logo_title }}</twig:UxDsfr:Footer:Logo>
-            {% else %}
-                <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo"></twig:UxDsfr:Footer:Logo>
-            {% endif %}
+            {# footer_brand takes a Footer:Logo whose content is markup, e.g. a name on two lines #}
+            {% block footer_brand %}
+                {% if logo_title %}
+                    <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo" :service_title="service_title">{{ logo_title }}</twig:UxDsfr:Footer:Logo>
+                {% else %}
+                    <twig:UxDsfr:Footer:Logo :link="service_link" :service_logo="service_logo" :service_title="service_title"></twig:UxDsfr:Footer:Logo>
+                {% endif %}
+            {% endblock %}
             <div class="fr-footer__content">
-                {% block footer_content %}{% endblock %}
+                {% block footer_content %}
+                    {% if description %}
+                        <p class="fr-footer__content-desc">{{ description }}</p>
+                    {% endif %}
+                    {# Mandatory links, in this order #}
+                    <ul class="fr-footer__content-list">
+                        {% for domain in ['info.gouv.fr', 'service-public.gouv.fr', 'legifrance.gouv.fr', 'data.gouv.fr'] %}
+                            <li class="fr-footer__content-item">
+                                <a class="fr-footer__content-link" href="https://{{ domain }}" target="_blank" rel="noopener external" title="{{ domain }} - {{ 'utils.new_window'|trans({}, 'dsfr') }}">{{ domain }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endblock %}
             </div>
         </div>
         {% if partners %}
@@ -41,8 +56,9 @@
             {{ footer_menu }}
             {% endif %}
             <div class="fr-footer__bottom-copy">
-                <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a>
-                </p>
+                {% block footer_copy %}
+                    <p>{{ 'footer.license'|trans({}, 'dsfr') }} <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="{{ 'footer.license_link'|trans({}, 'dsfr') }} - {{ 'utils.new_window'|trans({}, 'dsfr') }}">{{ 'footer.license_link'|trans({}, 'dsfr') }}</a></p>
+                {% endblock %}
             </div>
         </div>
     </div>
