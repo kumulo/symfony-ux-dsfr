@@ -1,0 +1,79 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h1 class="fr-h1">Modal</h1>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Modal</code> affiche un contenu dans une fenêtre au-dessus de la page. Il s’ouvre avec un bouton dont l’attribut <code>aria-controls</code> vaut l’<code>id</code> de la modale.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h2 class="fr-h2">Modale simple</h2>
+        <div class="fr-mt-4v">
+            <button class="fr-btn" aria-controls="modal-simple" data-fr-opened="false" type="button">Modale simple</button>
+            <twig:UxDsfr:Modal id="modal-simple" title="Titre de la modale">
+                <p>Contenu de la modale.</p>
+            </twig:UxDsfr:Modal>
+        </div>
+        {% set code = "&lt;button class=\"fr-btn\" aria-controls=\"modal-simple\" data-fr-opened=\"false\" type=\"button\"&gt;Modale simple&lt;/button&gt;
+&lt;twig:UxDsfr:Modal id=\"modal-simple\" title=\"Titre de la modale\"&gt;
+    &lt;p&gt;Contenu de la modale.&lt;/p&gt;
+&lt;/twig:UxDsfr:Modal&gt;" %}
+        <twig:UxDsfr:Highlight>
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </twig:UxDsfr:Highlight>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h2 class="fr-h2">Zone d’action</h2>
+        <p>Le bloc <code>footer</code> reçoit un bouton primaire ou un groupe de boutons ; le bloc <code>title</code> remplace l’option <code>title</code>, par exemple pour ajouter une icône.</p>
+        <div class="fr-mt-4v">
+            <button class="fr-btn" aria-controls="modal-action" data-fr-opened="false" type="button">Modale avec zone d’action</button>
+            <twig:UxDsfr:Modal id="modal-action">
+                <twig:block name="title"><span class="fr-icon-arrow-right-line fr-icon--lg" aria-hidden="true"></span> Titre de la modale</twig:block>
+                <p>Contenu de la modale.</p>
+                <twig:block name="footer">
+                    <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left">
+                        <li><button class="fr-btn fr-icon-checkbox-circle-line" type="button">Valider</button></li>
+                        <li><button class="fr-btn fr-btn--secondary" aria-controls="modal-action" type="button">Annuler</button></li>
+                    </ul>
+                </twig:block>
+            </twig:UxDsfr:Modal>
+        </div>
+        {% set code = "&lt;twig:UxDsfr:Modal id=\"modal-action\"&gt;
+    &lt;twig:block name=\"title\"&gt;&lt;span class=\"fr-icon-arrow-right-line fr-icon--lg\" aria-hidden=\"true\"&gt;&lt;/span&gt; Titre de la modale&lt;/twig:block&gt;
+    &lt;p&gt;Contenu de la modale.&lt;/p&gt;
+    &lt;twig:block name=\"footer\"&gt;
+        &lt;ul class=\"fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left\"&gt;
+            &lt;li&gt;&lt;button class=\"fr-btn fr-icon-checkbox-circle-line\" type=\"button\"&gt;Valider&lt;/button&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;button class=\"fr-btn fr-btn--secondary\" aria-controls=\"modal-action\" type=\"button\"&gt;Annuler&lt;/button&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/twig:block&gt;
+&lt;/twig:UxDsfr:Modal&gt;" %}
+        <twig:UxDsfr:Highlight>
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </twig:UxDsfr:Highlight>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h2 class="fr-h2">Options</h2>
+        <ul>
+            <li><code>size</code> : <code>sm</code>, <code>md</code> (défaut) ou <code>lg</code>, la largeur de la modale sur la grille</li>
+            <li><code>top</code> : place la zone d’action en haut de la modale en mobile</li>
+            <li><code>:concealingBackdrop="false"</code> : un clic sur le fond ne referme pas la modale</li>
+        </ul>
+        <div class="fr-mt-4v">
+            <button class="fr-btn fr-btn--secondary" aria-controls="modal-lg" data-fr-opened="false" type="button">Grande modale</button>
+            <twig:UxDsfr:Modal id="modal-lg" title="Grande modale" size="lg" :concealingBackdrop="false">
+                <p>Un clic sur le fond ne la referme pas.</p>
+            </twig:UxDsfr:Modal>
+        </div>
+        {% set code = "&lt;twig:UxDsfr:Modal id=\"modal-lg\" title=\"Grande modale\" size=\"lg\" :concealingBackdrop=\"false\"&gt;
+    &lt;p&gt;Un clic sur le fond ne la referme pas.&lt;/p&gt;
+&lt;/twig:UxDsfr:Modal&gt;" %}
+        <twig:UxDsfr:Highlight>
+            <pre><code class="language-html">{{ code|raw }}</code></pre>
+        </twig:UxDsfr:Highlight>
+    </div>
+{% endblock %}

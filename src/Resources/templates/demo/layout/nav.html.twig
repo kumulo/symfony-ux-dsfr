@@ -72,6 +72,11 @@
         </twig:UxDsfr:Layout:SideMenuItem>
         <twig:UxDsfr:Layout:SideMenuItem>
             {%- block link -%}
+                <a href="{{ path('dsfr_components_Modal') }}"{% if app.current_route === 'dsfr_components_Modal' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Modal</a>
+            {%- endblock -%}
+        </twig:UxDsfr:Layout:SideMenuItem>
+        <twig:UxDsfr:Layout:SideMenuItem>
+            {%- block link -%}
                 <a href="{{ path('dsfr_components_Quote') }}"{% if app.current_route === 'dsfr_components_Quote' %} aria-current="page"{% endif %} class="fr-sidemenu__link">Quote</a>
             {%- endblock -%}
         </twig:UxDsfr:Layout:SideMenuItem>

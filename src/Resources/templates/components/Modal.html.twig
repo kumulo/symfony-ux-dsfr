@@ -1,20 +1,28 @@
+{% set titleContent %}{% block title %}{{ title }}{% endblock %}{% endset %}
+{% set hasTitle = titleContent|trim is not empty %}
 <dialog {{ attributes.defaults({
-    'class': "fr-modal",
-    'aria-labelledby': "modal-0-title",
-    'data-fr-concealing-backdrop': "true",
-    'id': id
-}) }}>
+    'id': id,
+    'class': 'fr-modal' ~ (top ? ' fr-modal--top' : ''),
+}|merge(hasTitle ? {'aria-labelledby': id ~ '-title'} : {})|merge(concealingBackdrop ? {} : {'data-fr-concealing-backdrop': 'false'})) }}>
     <div class="fr-container fr-container--fluid fr-container-md">
         <div class="fr-grid-row fr-grid-row--center">
-            <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+            <div class="{{ this.columnClasses }}">
                 <div class="fr-modal__body">
                     <div class="fr-modal__header">
-                        <button aria-controls="{{ id }}" title="Fermer" type="button" id="button-5" class="fr-btn--close fr-btn">Fermer</button>
+                        <button aria-controls="{{ id }}" title="{{ 'utils.close'|trans({}, 'dsfr') }}" type="button" class="fr-btn--close fr-btn">{{ 'utils.close'|trans({}, 'dsfr') }}</button>
                     </div>
                     <div class="fr-modal__content">
-                        {% block content %}
-                        {% endblock %}
+                        {% if hasTitle %}
+                            <h2 id="{{ id }}-title" class="fr-modal__title">{{ titleContent }}</h2>
+                        {% endif %}
+                        {% block content %}{% endblock %}
                     </div>
+                    {% set footer %}{% block footer %}{% endblock %}{% endset %}
+                    {% if footer|trim is not empty %}
+                        <div class="fr-modal__footer">
+                            {{ footer }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

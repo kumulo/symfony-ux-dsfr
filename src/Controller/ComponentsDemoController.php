@@ -98,6 +98,12 @@ class ComponentsDemoController extends AbstractController
         return $this->render('@UxDsfr/demo/components/Icon.html.twig');
     }
 
+    #[Route('/Modal', '_Modal')]
+    public function Modal()
+    {
+        return $this->render('@UxDsfr/demo/components/Modal.html.twig');
+    }
+
     #[Route('/Quote', '_Quote')]
     public function Quote()
     {
