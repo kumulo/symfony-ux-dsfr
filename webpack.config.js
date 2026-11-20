@@ -42,6 +42,10 @@ Encore
         from: './node_modules/@gouvfr/dsfr/dist/icons',
         to: '/icons/[path][name].[ext]',
     })
+    .copyFiles({
+        from: './node_modules/@gouvfr/dsfr/dist/favicon',
+        to: '/favicon/[path][name].[ext]',
+    })
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
