@@ -35,3 +35,7 @@ alert:
 stepper:
   state: Step %current% of %count%
   next: 'Next step:'
+upload:
+  max_size: 'Maximum size: %size%.'
+  formats: 'Supported formats: %formats%.'
+  multiple: 'Several files allowed.'

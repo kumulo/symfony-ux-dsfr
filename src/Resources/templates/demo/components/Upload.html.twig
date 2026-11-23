@@ -1,0 +1,35 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{% block text_content %}
+    <h1 class="fr-h1">Upload</h1>
+    <div class="fr-mt-4v">
+        <twig:UxDsfr:Callout color="blue-ecume">
+            <p class="fr-mb-0">Le composant <code>Upload</code> est l’ajout de fichier du DSFR : un champ fichier natif, son libellé et une indication obligatoire (taille maximale, formats, plusieurs fichiers). Il ne demande pas de JavaScript.</p>
+        </twig:UxDsfr:Callout>
+    </div>
+
+    <div class="fr-mt-4v">
+        <h2 class="fr-h3">Rendu</h2>
+        <twig:UxDsfr:Upload accept=".jpg,.png,.pdf" :formats="['jpg', 'png', 'pdf']" id="demo-upload" label="Ajouter un fichier" maxSize="20 Mo" />
+        <twig:UxDsfr:Upload :formats="['pdf']" id="demo-upload-multiple" label="Ajouter des fichiers" maxSize="20 Mo" :multiple="true" />
+        <twig:UxDsfr:Upload error="Format de fichier non supporté" hint="Indication libre, qui remplace celle construite." id="demo-upload-error" label="Ajouter un fichier" />
+        <twig:UxDsfr:Upload :disabled="true" id="demo-upload-disabled" label="Ajouter un fichier" maxSize="20 Mo" />
+    </div>
+
+    <div class="fr-mt-4v">
+        <h2 class="fr-h3">Exemples de code</h2>
+        <div class="code-snippet">
+            {% set code_basic %}&lt;twig:UxDsfr:Upload label="Ajouter un fichier" maxSize="20 Mo" :formats="['jpg', 'png', 'pdf']" accept=".jpg,.png,.pdf" /&gt;{% endset %}
+            <pre><code class="language-html">{{ code_basic }}</code></pre>
+            {% set code_error %}&lt;twig:UxDsfr:Upload label="Ajouter des fichiers" :multiple="true" error="Format de fichier non supporté" /&gt;{% endset %}
+            <pre><code class="language-html">{{ code_error }}</code></pre>
+
+            <h3 class="fr-h5">Options</h3>
+            {% set code_options = "label: libellé du champ\nid: identifiant du champ, unique par défaut (le groupe de messages est <id>-messages)\nname: id par défaut, suivi de [] pour plusieurs fichiers\nhint: indication libre, remplace celle construite\nmaxSize: taille maximale, ex. « 20 Mo »\nformats: formats supportés, ex. ['jpg', 'png', 'pdf']\naccept: attribut accept du champ, ex. « .jpg,.png,.pdf »\nmultiple: true | false\nrequired: true | false\ndisabled: true | false\nerror: message d’erreur" %}
+            <pre><code class="language-text">{{ code_options }}</code></pre>
+
+            <h3 class="fr-h5">Formulaires Symfony</h3>
+            <p>Avec le thème <code>form_dsfr_layout.html.twig</code>, un <code>FileType</code> suit le même balisage : son option <code>help</code> devient l’indication, ses erreurs vont dans le groupe de messages.</p>
+        </div>
+    </div>
+{% endblock %}

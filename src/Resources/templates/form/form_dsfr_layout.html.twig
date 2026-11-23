@@ -17,3 +17,36 @@
     {% endif %}
     {{- parent() -}}
 {%- endblock %}
+{# File fields as the DSFR upload: fr-upload-group, hint (help) in the label, messages group for the errors #}
+{% block file_row -%}
+    {%- set row_class = ['fr-upload-group', errors|length > 0 ? 'fr-upload-group--error', disabled ? 'fr-upload-group--disabled', row_attr.class ?? null]|filter(c => c)|join(' ') -%}
+    <div{% with {attr: row_attr|merge({class: row_class})} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        {{- form_widget(form, {attr: {'aria-describedby': id ~ '-messages'}}) -}}
+        <div aria-live="polite" class="fr-messages-group" id="{{ id }}-messages">
+            {%- for error in errors -%}
+                <p class="fr-message fr-message--error">{{ error.message }}</p>
+            {%- endfor -%}
+        </div>
+    </div>
+{%- endblock %}
+
+{# form_div_layout has no file_widget: the simple widget, of type file #}
+{% block file_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' fr-upload')|trim}) -%}
+    {%- set type = 'file' -%}
+    {{- block('form_widget_simple') -}}
+{%- endblock %}
+
+{% block file_label -%}
+    {%- if label is not same as(false) -%}
+        {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' fr-label')|trim, for: id}) -%}
+        {%- if label is empty -%}
+            {%- set label = label_format ? label_format|replace({'%name%': name, '%id%': id}) : name|humanize -%}
+        {%- endif -%}
+        <label{% with {attr: label_attr} %}{{ block('attributes') }}{% endwith %}>
+            {{- translation_domain is same as(false) ? label : label|trans(label_translation_parameters, translation_domain) -}}
+            {%- if help is not empty %} <span class="fr-hint-text">{{- block('form_help_content') -}}</span>{% endif -%}
+        </label>
+    {%- endif -%}
+{%- endblock %}

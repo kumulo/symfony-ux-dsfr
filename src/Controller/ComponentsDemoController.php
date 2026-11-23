@@ -134,6 +134,12 @@ class ComponentsDemoController extends AbstractController
         return $this->render('@UxDsfr/demo/components/ThemeSwitcher.html.twig');
     }
 
+    #[Route('/Upload', '_Upload')]
+    public function Upload()
+    {
+        return $this->render('@UxDsfr/demo/components/Upload.html.twig');
+    }
+
     #[Route('/LayoutBody', '_LayoutBody')]
     public function LayoutBody()
     {

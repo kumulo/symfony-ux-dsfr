@@ -1,0 +1,20 @@
+{% set built_hint = [
+    maxSize ? 'upload.max_size'|trans({'%size%': maxSize}, 'dsfr'),
+    formats ? 'upload.formats'|trans({'%formats%': formats|join(', ')}, 'dsfr'),
+    multiple ? 'upload.multiple'|trans({}, 'dsfr'),
+]|filter(part => part)|join(' ') %}
+{% set hint_text = hint ?? built_hint %}
+<div {{ attributes.defaults({class: ['fr-upload-group', error ? 'fr-upload-group--error', disabled ? 'fr-upload-group--disabled']|filter(c => c)|join(' ')}) }}>
+    <label class="fr-label" for="{{ id }}">
+        {{- label -}}
+        {%- if hint_text %} <span class="fr-hint-text">{{ hint_text }}</span>{% endif -%}
+    </label>
+    <input aria-describedby="{{ id }}-messages" class="fr-upload" id="{{ id }}" name="{{ name }}" type="file"
+        {%- if accept %} accept="{{ accept }}"{% endif %}
+        {%- if multiple %} multiple{% endif %}
+        {%- if required %} required{% endif %}
+        {%- if disabled %} disabled{% endif %}>
+    <div aria-live="polite" class="fr-messages-group" id="{{ id }}-messages">
+        {%- if error %}<p class="fr-message fr-message--error">{{ error }}</p>{% endif -%}
+    </div>
+</div>
