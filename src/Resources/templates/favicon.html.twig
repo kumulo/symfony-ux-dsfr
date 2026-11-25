@@ -1,0 +1,6 @@
+{# DSFR favicon (fondamentaux/icone-de-favori), from the bundle's public directory #}
+<link rel="apple-touch-icon" href="{{ asset('bundles/symfonyuxdsfr/favicon/apple-touch-icon.png') }}"><!-- 180×180 -->
+<link rel="icon" href="{{ asset('bundles/symfonyuxdsfr/favicon/favicon.svg') }}" type="image/svg+xml">
+<link rel="shortcut icon" href="{{ asset('bundles/symfonyuxdsfr/favicon/favicon.ico') }}" type="image/x-icon"><!-- 32×32 -->
+{# Installed path, not asset(): the manifest's relative icon paths must not be hashed (AssetMapper) #}
+<link rel="manifest" href="{{ app.request.basePath|default('') }}/bundles/symfonyuxdsfr/favicon/manifest.webmanifest" crossorigin="use-credentials">

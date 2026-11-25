@@ -47,6 +47,8 @@ import '@gouvfr/dsfr/dist/utility/icons/icons.min.css';
 import '@gouvfr/dsfr/dist/dsfr.module.min.js';
 ```
 
+The layouts add the DSFR favicon (Marianne) from the bundle's public directory, so run `php bin/console assets:install`. The `favicon` block of `Page` and `base.html.twig` replaces it, and `{{ include('@UxDsfr/favicon.html.twig') }}` adds it to another layout.
+
 Create a base template for your application that extends the DSFR layout. For example, create a `base-dsfr.html.twig` file in your `templates` directory:
 ```twig
 {% set page_content %}
