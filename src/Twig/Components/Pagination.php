@@ -26,6 +26,10 @@ class Pagination
     #[ExposeInTemplate]
     public string $path = '#page=%d';
 
+    /** Link of the first page, when it differs from the path's: a list's URL without its page parameter */
+    #[ExposeInTemplate]
+    public ?string $firstPath = null;
+
     /** How many pages around the current one */
     #[ExposeInTemplate]
     public int $neighbours = 1;
@@ -39,11 +43,13 @@ class Pagination
             'current' => 1,
             'total' => 1,
             'path' => '#page=%d',
+            'firstPath' => null,
             'neighbours' => 1,
         ]);
         $resolver->setAllowedTypes('current', 'int');
         $resolver->setAllowedTypes('total', 'int');
         $resolver->setAllowedTypes('path', 'string');
+        $resolver->setAllowedTypes('firstPath', ['null', 'string']);
         $resolver->setAllowedTypes('neighbours', 'int');
 
         return $resolver->resolve($data) + $data;
@@ -57,6 +63,10 @@ class Pagination
     /** "%d" replaced, not sprintf: a URL can hold other "%" (encoded characters) */
     public function href(int $page): string
     {
+        if (1 === $page && null !== $this->firstPath) {
+            return $this->firstPath;
+        }
+
         return str_replace('%d', (string) $page, $this->path);
     }
 

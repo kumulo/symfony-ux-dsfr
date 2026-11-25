@@ -13,6 +13,7 @@
         <twig:UxDsfr:Pagination :current="1" :total="6" />
         <twig:UxDsfr:Pagination :current="10" :total="20" />
         <twig:UxDsfr:Pagination :current="20" :total="20" :neighbours="2" />
+        <twig:UxDsfr:Pagination :current="3" :total="6" path="?page=%d" firstPath="?" />
     </div>
 
     <div class="fr-mt-4v">
@@ -22,9 +23,11 @@
             <pre><code class="language-html">{{ code_basic }}</code></pre>
             {% set code_route %}&lt;twig:UxDsfr:Pagination :current="page" :total="pageCount" :path="path('article_index', {page: '__page__'})|replace({'__page__': '%d'})" /&gt;{% endset %}
             <pre><code class="language-html">{{ code_route }}</code></pre>
+            {% set code_first %}&lt;twig:UxDsfr:Pagination :current="page" :total="pageCount" :path="path('article_index', {page: '__page__'})|replace({'__page__': '%d'})" :firstPath="path('article_index')" /&gt;{% endset %}
+            <pre><code class="language-html">{{ code_first }}</code></pre>
 
             <h3 class="fr-h5">Options</h3>
-            {% set code_options = "current: page courante (1 par défaut)\ntotal: nombre de pages\npath: lien d’une page, %d remplacé par son numéro (#page=%d par défaut)\nneighbours: nombre de pages affichées de chaque côté de la page courante (1 par défaut)" %}
+            {% set code_options = "current: page courante (1 par défaut)\ntotal: nombre de pages\npath: lien d’une page, %d remplacé par son numéro (#page=%d par défaut)\nfirstPath: lien de la première page, s’il diffère de path (l’adresse de la liste sans paramètre de page, par exemple)\nneighbours: nombre de pages affichées de chaque côté de la page courante (1 par défaut)" %}
             <pre><code class="language-text">{{ code_options }}</code></pre>
         </div>
     </div>
