@@ -62,6 +62,12 @@ class ComponentsDemoController extends AbstractController
         return $this->render('@UxDsfr/demo/components/Callout.html.twig');
     }
 
+    #[Route('/Chart', '_Chart')]
+    public function Chart()
+    {
+        return $this->render('@UxDsfr/demo/components/Chart.html.twig');
+    }
+
     #[Route('/Card', '_Card')]
     public function Card()
     {

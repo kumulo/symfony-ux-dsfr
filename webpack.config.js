@@ -42,6 +42,17 @@ Encore
         from: './node_modules/@gouvfr/dsfr/dist/icons',
         to: '/icons/[path][name].[ext]',
     })
+    // DSFR Chart as published, loaded by the Chart component only on the pages that have a chart
+    .copyFiles({
+        from: './node_modules/@gouvfr/dsfr-chart/dist/DSFRChart',
+        to: '/dsfr-chart/[name].[ext]',
+        pattern: /\.(css|js)$/,
+    })
+    .copyFiles({
+        from: './node_modules/@gouvfr/dsfr-chart',
+        to: '/dsfr-chart/[name]',
+        pattern: /^LICENSE$/,
+    })
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

@@ -1,0 +1,48 @@
+{% extends "@UxDsfr/demo/components.html.twig" %}
+
+{# ‹ stands for < in the snippets: the component lexer would otherwise render <twig: tags #}
+{% macro snippet(code) %}
+    <div class="fr-mt-4v code-snippet">
+        <p><strong>Code snippet</strong></p>
+        <twig:UxDsfr:Highlight><pre><code class="language-html">{{ code|replace({'‹': '<'}) }}</code></pre></twig:UxDsfr:Highlight>
+    </div>
+{% endmacro %}
+
+{% block text_content %}
+    {% from _self import snippet %}
+    {% set months = ['Janvier', 'Février', 'Mars', 'Avril'] %}
+    <h1 class="fr-h1">Chart</h1>
+    <p>
+        Le composant Chart affiche un graphique <a href="https://github.com/GouvernementFR/dsfr-chart" target="_blank" rel="noopener">DSFR Chart</a>
+        (barres, lignes ou secteurs) et, dessous, ses données dans un tableau, l’alternative accessible que le DSFR demande.
+        Le composant charge lui-même DSFR Chart, sur les seules pages qui ont un graphique.
+        Les autres attributs vont au graphique : <code>selected-palette</code>, <code>unit-tooltip</code>, <code>aspect-ratio</code>,
+        <code>stacked</code>, <code>horizontal</code>, <code>fill</code>…
+    </p>
+
+    <h2 class="fr-h3 fr-mt-8v">Barres</h2>
+    <twig:UxDsfr:Chart caption="Dossiers ouverts et clos par mois" labelsHeader="Mois" :labels="months" :series="{'Ouverts': [12, 19, 7, 15], 'Clos': [4, 9, 11, 6]}" selected-palette="categorical" unit-tooltip="dossiers" />
+    {{ snippet('‹twig:UxDsfr:Chart caption="Dossiers ouverts et clos par mois" labelsHeader="Mois"
+    :labels="[\'Janvier\', \'Février\', \'Mars\', \'Avril\']"
+    :series="{\'Ouverts\': [12, 19, 7, 15], \'Clos\': [4, 9, 11, 6]}"
+    selected-palette="categorical" unit-tooltip="dossiers" />') }}
+
+    <h2 class="fr-h3 fr-mt-8v">Barres empilées horizontales</h2>
+    <twig:UxDsfr:Chart caption="Dossiers par mois" labelsHeader="Mois" :labels="months" :series="{'Ouverts': [12, 19, 7, 15], 'Clos': [4, 9, 11, 6]}" horizontal="true" stacked="true" />
+    {{ snippet('‹twig:UxDsfr:Chart caption="Dossiers par mois" labelsHeader="Mois" :labels="months" :series="series" horizontal="true" stacked="true" />') }}
+
+    <h2 class="fr-h3 fr-mt-8v">Lignes</h2>
+    <twig:UxDsfr:Chart type="line" caption="Contrôles par mois" labelsHeader="Mois" :labels="months" :series="{'Contrôles': [3, 8, 5, 10]}" />
+    {{ snippet('‹twig:UxDsfr:Chart type="line" caption="Contrôles par mois" labelsHeader="Mois" :labels="months" :series="{\'Contrôles\': [3, 8, 5, 10]}" />') }}
+
+    <h2 class="fr-h3 fr-mt-8v">Secteurs</h2>
+    <p>Un secteur par libellé ; <code>fill="true"</code> remplit le centre.</p>
+    <twig:UxDsfr:Chart type="pie" caption="Motifs de clôture" labelsHeader="Motif" :labels="['Régularisé', 'Démoli', 'Autre']" :series="{'Dossiers': [14, 6, 3]}" fill="true" />
+    {{ snippet('‹twig:UxDsfr:Chart type="pie" caption="Motifs de clôture" labelsHeader="Motif"
+    :labels="[\'Régularisé\', \'Démoli\', \'Autre\']" :series="{\'Dossiers\': [14, 6, 3]}" fill="true" />') }}
+
+    <h2 class="fr-h3 fr-mt-8v">Sans tableau</h2>
+    <p>Quand les mêmes données sont déjà dans la page : <code>:table="false"</code>.</p>
+    <twig:UxDsfr:Chart :labels="months" :series="{'Ouverts': [12, 19, 7, 15]}" :table="false" />
+    {{ snippet('‹twig:UxDsfr:Chart :labels="months" :series="{\'Ouverts\': [12, 19, 7, 15]}" :table="false" />') }}
+{% endblock %}

@@ -1,0 +1,34 @@
+{# The DSFR Chart build, once per page in effect: the browser loads a module and a stylesheet only once #}
+<link rel="stylesheet" href="{{ asset('bundles/symfonyuxdsfr/dsfr-chart/DSFRChart.css') }}">
+<script type="module" src="{{ asset('bundles/symfonyuxdsfr/dsfr-chart/DSFRChart.js') }}"></script>
+<div id="{{ chartId }}">
+    <{{ type }}-chart {{ attributes }} x="{{ this.x }}" y="{{ this.y }}" name="{{ this.name }}"></{{ type }}-chart>
+    {% if table %}
+        <twig:UxDsfr:Accordion :accordionId="chartId ~ '-data'" class="fr-mt-2w">
+            <twig:block name="title">{{ 'chart.data'|trans({}, 'dsfr') }}</twig:block>
+            <twig:block name="content">
+                <twig:UxDsfr:Table :caption="caption">
+                    <twig:block name="thead">
+                        <tr>
+                            <th scope="col">{{ labelsHeader }}</th>
+                            {% for name in series|keys %}
+                                <th scope="col">{{ name }}</th>
+                            {% endfor %}
+                        </tr>
+                    </twig:block>
+                    <twig:block name="tbody">
+                        {% for label in labels %}
+                            {% set index = loop.index0 %}
+                            <tr>
+                                <th scope="row">{{ label }}</th>
+                                {% for values in series %}
+                                    <td>{{ values[index] ?? '' }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </twig:block>
+                </twig:UxDsfr:Table>
+            </twig:block>
+        </twig:UxDsfr:Accordion>
+    {% endif %}
+</div>
